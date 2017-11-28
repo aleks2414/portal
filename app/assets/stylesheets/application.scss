@@ -1,0 +1,173 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Courgette|Lora|Raleway');
+
+
+$purple: #221A48;
+$yellow: #FFCD33;
+$pink: #D33383;
+$grey: #FD6C6A;
+$light_grey: #f9f9f9;
+$black: #555;
+$white: #f2f2f2;
+
+body {
+-webkit-font-smoothing: antialiased;
+background-color: white;
+color: $purple;
+text-rendering: optimizeLegibility;
+}     
+
+h1, h2, h3, h4, h5, h6 {    
+	font-family: 'Lora', serif;
+  color: $pink; 
+}
+
+p, a {
+  font-family: 'Raleway', sans-serif;
+  color: $purple;
+}
+
+.curly {
+	font-family: 'Courgette', cursive;
+  color: $purple;
+}
+
+  a {
+    &:hover {
+      text-decoration: none;
+      background-color: transparent;
+      color: $pink;
+    }
+  }
+
+#content {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 0.2%;
+  z-index: -2000;
+}
+
+.button {
+  transition: background-color .15s linear;
+  font-size: 17px;
+  min-width: 200px;
+  border-radius: 2px;
+  padding: 13px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-top: .2rem;
+  background-color: transparent;
+}
+
+.button_purple {
+  color: $purple !important;
+  background-color: transparent;
+  border: solid 1.3px $purple;
+  &:hover {
+    color: $white !important;
+    background-color: $purple;
+  }
+  &:hover > a {
+  color: white;
+  background-color: $purple;
+  }
+}
+
+.button_center {
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.but {
+  text-align: center;
+}
+
+ #banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 1rem;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+  background-color: #717171;
+}
+
+.cover_home {
+  background-image: image-url("cover.png");
+  height: 85vh;
+}
+
+#fondi {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.78);
+  position: absolute;
+  padding: 1%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#backi {
+  border: solid 1px $grey;
+  padding: 4%;
+}
+
+#option {
+  /*background-color: green;*/
+  padding: 30px 0;
+  h1, p {
+    text-align: center;
+  }
+}
+
+#eventos {
+  margin: 20px 0;
+  height: 350px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 11px;
+  border: solid 1px #e2e8ea;
+  -webkit-box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
+  box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
+  h2 {
+    color: $purple;
+    font-size: 1.3em;
+    text-align: left;
+  }
+  p {
+    text-align: left;
+    font-size: .9em;
+    margin-top: 40px;
+  }
+  .imagen {
+    width: 100%;
+    height:110px;
+    display:block;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.grey {
+  background-color: $light_grey;
+}
