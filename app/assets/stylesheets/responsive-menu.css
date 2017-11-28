@@ -16,10 +16,13 @@ Set menu background color to any color
 to work with the chosen theme.
 */
 
+
+
+
 /* Set menu background color here */
 .rm-nav ul,
 .rm-menu {
-    background-color: $white;
+    background-color: white;
     margin-top: 0;
 }
 
