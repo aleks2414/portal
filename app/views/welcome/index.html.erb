@@ -186,7 +186,46 @@
 </div>
 
 
+
+
+
+
+
 <div id="option">
+	<div class="container">
+		<h1>
+			<span class="curly">Eventos</span> tan reales como el tuyo
+		</h1>
+		<p>Te dejamos algunas muestras de eventos reales para que te inspires
+		</p>
+<div class="row">
+
+<% @events.each do |event| %>
+	<div class="col-md-4 col-sm-6">
+		<div id="eventos_reales">
+			<%= link_to event do %>
+			<div class="imagen">
+			<%= image_tag "prueba.jpg" %>
+			</div>
+			<h3><%=event.categoria %></h3>
+			<h2><%=event.nombre %></h2>
+			<p><%=event.fecha %><p>
+			<h5><%=event.lugar %></h5>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+
+
+</div>
+<div class="but">
+<%= link_to "Ver todos los eventos", events_path, class: "button button_purple button_center" %>
+</div>
+	</div>
+</div>
+
+
+<div id="option" class="grey">
 	<div class="container">
 		<h1>
 			Tips y consejos para tus <span class="curly">eventos</span>
@@ -236,58 +275,6 @@ Revisa los tips y consejos que te damos para antes, durante y después de tus ev
 </div>
 <div class="but">
 <%= link_to "Ver todos los tips", root_path, class: "button button_purple button_center" %>
-</div>
-	</div>
-</div>
-
-
-
-
-<div id="option" class="grey">
-	<div class="container">
-		<h1>
-			<span class="curly">Eventos</span> tan reales como el tuyo
-		</h1>
-		<p>Te dejamos algunas muestras de eventos reales para que te inspires
-		</p>
-<div class="row">
-	<div class="col-md-4 col-sm-6">
-		<div id="eventos_reales">
-			<div class="imagen">
-			<%= image_tag "prueba.jpg" %>
-			</div>
-			<h3>xv años</h3>
-			<h2>XV Rebeca</h2>
-			<p>12 de diciembre 2010<p>
-		</div>
-	</div>
-
-	<div class="col-md-4 col-sm-6">
-		<div id="eventos_reales">
-			<div class="imagen">
-			<%= image_tag "prueba.jpg" %>
-			</div>
-			<h3>Boda</h3>
-			<h2>Charly & Lola</h2>
-			<p>12 de diciembre 2010<p>
-			<h5>Morelos, Morelos</h5>
-		</div>
-	</div>
-
-	<div class="col-md-4 col-sm-6">
-		<div id="eventos_reales">
-			<div class="imagen">
-			<%= image_tag "prueba.jpg" %>
-			</div>
-			<h3>Graduación</h3>
-			<h2>Graduación Sucre 2017 nuevos alumnos</h2>
-			<p>12 de diciembre 2010<p>
-		</div>
-	</div>
-
-</div>
-<div class="but">
-<%= link_to "Ver todos los eventos", events_path, class: "button button_purple button_center" %>
 </div>
 	</div>
 </div>
