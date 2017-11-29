@@ -11,10 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128180341) do
+ActiveRecord::Schema.define(version: 20171129173023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "nombre"
+    t.string   "categoria"
+    t.string   "video_url"
+    t.text     "content"
+    t.string   "fecha"
+    t.string   "lugar"
+    t.boolean  "is_brides"
+    t.string   "brides"
+    t.boolean  "is_tux"
+    t.string   "tux"
+    t.boolean  "is_pasteles"
+    t.string   "pasteles"
+    t.boolean  "is_latingraf"
+    t.string   "latingraf"
+    t.boolean  "is_detalles"
+    t.string   "detalles"
+    t.boolean  "is_latino"
+    t.string   "latino"
+    t.boolean  "is_nissi"
+    t.string   "nissi"
+    t.boolean  "is_gabriella"
+    t.string   "gabriella"
+    t.boolean  "is_pixen"
+    t.string   "pixen"
+    t.boolean  "is_pelo"
+    t.string   "pelo"
+    t.boolean  "is_joymas"
+    t.string   "joymas"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -66,5 +102,6 @@ ActiveRecord::Schema.define(version: 20171128180341) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "events", "users"
   add_foreign_key "providers", "users"
 end

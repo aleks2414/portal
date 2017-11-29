@@ -1,0 +1,131 @@
+<div id="eventoos">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="n_evento">
+        <%= image_tag "prueba.jpg" %>
+        <p><%= @event.content %></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div id="info_evento">
+        <h1><%=@event.nombre %></h1>
+        <h4><%=@event.lugar%></h4>
+        <h6><%=@event.fecha%></h6>
+      </div>
+
+      <% if @event.video_url.present? %>
+      <div id="info_evento2">
+        <h2>Video del evento</h2>
+        <hr>
+      <iframe src='https://www.youtube.com/embed/<%= @event.video_url %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
+      </div>
+      <% end %>
+
+
+      <div id="info_evento2">
+        <h2>Servicios Portal de Bodas</h2>
+        <hr>
+
+      <% if @event.is_brides == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Brides & Dreams</h3>
+        <p><%= @event.brides %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_tux == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Tux & More</h3>
+        <p><%= @event.tux %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_pasteles == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Pasteles D’Claudia</h3>
+        <p><%= @event.pasteles %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_latingraf == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>LatinGraf</h3>
+        <p><%= @event.latingraf %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_detalles == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Detalles Mágicos</h3>
+        <p><%= @event.detalles %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_latino == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Son Latino</h3>
+        <p><%= @event.latino %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_nissi == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Nissi</h3>
+        <p><%= @event.nissi %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_gabriella == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Gabriella Padilla</h3>
+        <p><%= @event.gabriella %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_pixen == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Pixen Foto</h3>
+        <p><%= @event.pixen %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_pelo == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Pelo Pelo</h3>
+        <p><%= @event.pelo %></p>
+        <% end %>
+      <% end %>
+
+      <% if @event.is_joymas == true %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo2.png" %>
+        <h3>Joymas</h3>
+        <p><%= @event.joymas %></p>
+        <% end %>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<div class="container">
+<% if current_user %>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+<% end %>
+</div>

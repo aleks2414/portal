@@ -1,0 +1,133 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :categoria %><br>
+    <%= f.text_field :categoria %>
+  </div>
+  <div class="field">
+    <%= f.label :video_url %><br>
+    <%= f.text_field :video_url %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.text_field :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar %><br>
+    <%= f.text_field :lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :is_brides %><br>
+    <%= f.check_box :is_brides %>
+  </div>
+  <div class="field">
+    <%= f.label :brides %><br>
+    <%= f.text_field :brides %>
+  </div>
+  <div class="field">
+    <%= f.label :is_tux %><br>
+    <%= f.check_box :is_tux %>
+  </div>
+  <div class="field">
+    <%= f.label :tux %><br>
+    <%= f.text_field :tux %>
+  </div>
+  <div class="field">
+    <%= f.label :is_pasteles %><br>
+    <%= f.check_box :is_pasteles %>
+  </div>
+  <div class="field">
+    <%= f.label :pasteles %><br>
+    <%= f.text_field :pasteles %>
+  </div>
+  <div class="field">
+    <%= f.label :is_latingraf %><br>
+    <%= f.check_box :is_latingraf %>
+  </div>
+  <div class="field">
+    <%= f.label :latingraf %><br>
+    <%= f.text_field :latingraf %>
+  </div>
+  <div class="field">
+    <%= f.label :is_detalles %><br>
+    <%= f.check_box :is_detalles %>
+  </div>
+  <div class="field">
+    <%= f.label :detalles %><br>
+    <%= f.text_field :detalles %>
+  </div>
+  <div class="field">
+    <%= f.label :is_latino %><br>
+    <%= f.check_box :is_latino %>
+  </div>
+  <div class="field">
+    <%= f.label :latino %><br>
+    <%= f.text_field :latino %>
+  </div>
+  <div class="field">
+    <%= f.label :is_nissi %><br>
+    <%= f.check_box :is_nissi %>
+  </div>
+  <div class="field">
+    <%= f.label :nissi %><br>
+    <%= f.text_field :nissi %>
+  </div>
+  <div class="field">
+    <%= f.label :is_gabriella %><br>
+    <%= f.check_box :is_gabriella %>
+  </div>
+  <div class="field">
+    <%= f.label :gabriella %><br>
+    <%= f.text_field :gabriella %>
+  </div>
+  <div class="field">
+    <%= f.label :is_pixen %><br>
+    <%= f.check_box :is_pixen %>
+  </div>
+  <div class="field">
+    <%= f.label :pixen %><br>
+    <%= f.text_field :pixen %>
+  </div>
+  <div class="field">
+    <%= f.label :is_pelo %><br>
+    <%= f.check_box :is_pelo %>
+  </div>
+  <div class="field">
+    <%= f.label :pelo %><br>
+    <%= f.text_field :pelo %>
+  </div>
+  <div class="field">
+    <%= f.label :is_joymas %><br>
+    <%= f.check_box :is_joymas %>
+  </div>
+  <div class="field">
+    <%= f.label :joymas %><br>
+    <%= f.text_field :joymas %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

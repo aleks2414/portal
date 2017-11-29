@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  nombre: MyString
+  categoria: MyString
+  video_url: MyString
+  content: MyText
+  fecha: MyString
+  lugar: MyString
+  is_brides: false
+  brides: MyString
+  is_tux: false
+  tux: MyString
+  is_pasteles: false
+  pasteles: MyString
+  is_latingraf: false
+  latingraf: MyString
+  is_detalles: false
+  detalles: MyString
+  is_latino: false
+  latino: MyString
+  is_nissi: false
+  nissi: MyString
+  is_gabriella: false
+  gabriella: MyString
+  is_pixen: false
+  pixen: MyString
+  is_pelo: false
+  pelo: MyString
+  is_joymas: false
+  joymas: MyString
+
+two:
+  user_id: 
+  nombre: MyString
+  categoria: MyString
+  video_url: MyString
+  content: MyText
+  fecha: MyString
+  lugar: MyString
+  is_brides: false
+  brides: MyString
+  is_tux: false
+  tux: MyString
+  is_pasteles: false
+  pasteles: MyString
+  is_latingraf: false
+  latingraf: MyString
+  is_detalles: false
+  detalles: MyString
+  is_latino: false
+  latino: MyString
+  is_nissi: false
+  nissi: MyString
+  is_gabriella: false
+  gabriella: MyString
+  is_pixen: false
+  pixen: MyString
+  is_pelo: false
+  pelo: MyString
+  is_joymas: false
+  joymas: MyString

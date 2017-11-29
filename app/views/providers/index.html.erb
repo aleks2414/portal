@@ -1,45 +1,33 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Providers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Nombre</th>
-      <th>Foto</th>
-      <th>Productos</th>
-      <th>Anticipacion</th>
-      <th>Telefono</th>
-      <th>Correo</th>
-      <th>Info general</th>
-      <th>Servicios</th>
-      <th>Domicilio</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @providers.each do |provider| %>
-      <tr>
-        <td><%= provider.user %></td>
-        <td><%= provider.nombre %></td>
-        <td><%= provider.foto %></td>
-        <td><%= provider.productos %></td>
-        <td><%= provider.anticipacion %></td>
-        <td><%= provider.telefono %></td>
-        <td><%= provider.correo %></td>
-        <td><%= provider.info_general %></td>
-        <td><%= provider.servicios %></td>
-        <td><%= provider.domicilio %></td>
-        <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div id="option" class="grey">
+  <div class="container">
+    <h1>
+      +15 proveedores para tu evento <span class="curly"> evento </span>
+    </h1>
+    <p>Te dejamos algunas muestras de eventos reales para que te inspires
+    </p>
+<div class="row">
+  <% @providers.each do |provider| %>
+  <div class="col-md-3 col-sm-6">
+    <div id="prov_reales">
+      <%= link_to provider do %>
+      <div class="imagen">
+      <%= image_tag "prueba.jpg" %>
+      </div>
+      <h2><%= provider.nombre %></h2>
+      <p><%= provider.productos %><p>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <% end %>
 
-<br>
 
+</div>
+
+  </div>
+</div>
+
+<div class="container">
+<% if current_user %>
 <%= link_to 'New Provider', new_provider_path %>
+<% end %>
+</div>
