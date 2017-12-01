@@ -30,7 +30,9 @@
         </div>
       </div>
     </div>
+  </div>
 
+    <div class="container">
     <div id="magic">
     <div class="row">     
       <div class="col-md-6">
@@ -50,57 +52,100 @@
       </div>  
       </div>
     </div>
-  </div>
+    </div>
 
 
 
 
 
 <div class="container">
+  <div id="magici">
+<div id="comments">
   <%= form_for [@provider, @provider_comment] do |f| %>
 
+      <div class="row">
+      <div class="col-sm-6">
       <div class="field">
         <%= f.label :Nombre %><br>
         <%= f.text_field :nombre, required:true  %>
       </div>
+      </div>
+      </div>
 
+      
       <div class="field">
         <%= f.label :mensaje %><br>
         <%= f.text_area :mensaje, required:true  %>
       </div>
-
+      
+      <div class="row"> 
+      <div class="col-xs-4">
       <div class="field">
         <%= f.label :servicio %><br>
         <div id="star-rating1"></div>
       </div>
+      </div>
 
+      <div class="col-xs-4">
       <div class="field">
         <%= f.label :atencion %><br>
         <div id="star-rating2"></div>
       </div>
+      </div>
 
+      <div class="col-xs-4">
       <div class="field">
         <%= f.label :calidad %><br>
         <div id="star-rating3"></div>
       </div>
+      </div>
+      </div>
 
-
+<br><br>
       <div class="actions">
-        <%= f.submit "Añadir Comentario", class: "button button_red" %> <br><br>
+        <%= f.submit "Añadir Comentario", class: "button button_yellow" %> <br><br>
       </div>
 
   <% end %>
+
+  </div>
+  </div>
+</div>
+
+<div class="container">
+  <div id="magici">
+  <% @provider_comments.each_with_index do |provider_comment, i| %>
+  <div class="col-sm-6">
+  <div id="cuadro">
+  <h3><%= provider_comment.nombre %></h3>
+  <p class="down"><%= provider_comment.try(:mensaje).truncate(250) %></p>
+  
+  <div class="row">
+  
+  <div class="col-xs-4">
+  <p>Servicio:</p>
+  <h6 class="star-rating" data-score=<%=provider_comment.servicio%>> </h6>
+</div>
+  
+  <div class="col-xs-4">
+  <p>Atención:</p>
+  <h6 class="star-rating" data-score=<%=provider_comment.atencion%>> </h6>
+</div>
+  
+  <div class="col-xs-4">
+  <p>Calidad:</p>
+  <h6 class="star-rating" data-score=<%=provider_comment.calidad%>> </h6>
+  </div>
+  </div>
+  </div>
+  </div>
+  <% end %>
+</div>
 </div>
 
 
 
-  <% @provider_comments.each do |provider_comment| %>
-  <p><%= provider_comment.nombre %></p>
-  <p><%= provider_comment.mensaje %></p>
-  <div class="star-rating" data-score= <%=provider_comment.servicio%>></div>
-  <div class="star-rating" data-score= <%=provider_comment.atencion%>></div>
-  <div class="star-rating" data-score= <%=provider_comment.calidad%>></div>
-  <% end %>
+
 
 
 
