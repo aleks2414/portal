@@ -56,6 +56,54 @@
 
 
 
+<div class="container">
+  <%= form_for [@provider, @provider_comment] do |f| %>
+
+      <div class="field">
+        <%= f.label :Nombre %><br>
+        <%= f.text_field :nombre, required:true  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :mensaje %><br>
+        <%= f.text_area :mensaje, required:true  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :servicio %><br>
+        <div id="star-rating1"></div>
+      </div>
+
+      <div class="field">
+        <%= f.label :atencion %><br>
+        <div id="star-rating2"></div>
+      </div>
+
+      <div class="field">
+        <%= f.label :calidad %><br>
+        <div id="star-rating3"></div>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit "Añadir Comentario", class: "button button_red" %> <br><br>
+      </div>
+
+  <% end %>
+</div>
+
+
+
+  <% @provider_comments.each do |provider_comment| %>
+  <p><%= provider_comment.nombre %></p>
+  <p><%= provider_comment.mensaje %></p>
+  <div class="star-rating" data-score= <%=provider_comment.servicio%>></div>
+  <div class="star-rating" data-score= <%=provider_comment.atencion%>></div>
+  <div class="star-rating" data-score= <%=provider_comment.calidad%>></div>
+  <% end %>
+
+
+
 <p>
   <strong>Foto:</strong>
   <%= @provider.foto %>
@@ -67,3 +115,33 @@
 <%= link_to 'Back', providers_path %>
 </div>
 <% end %>
+
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
+
+
+<script>
+  $('#star-rating1').raty({
+    path: '/assets/',
+    scoreName: 'provider_comment[servicio]'
+  });
+
+  $('#star-rating2').raty({
+    path: '/assets/',
+    scoreName: 'provider_comment[atencion]'
+  });
+
+    $('#star-rating3').raty({
+    path: '/assets/',
+    scoreName: 'provider_comment[calidad]'
+  });
+</script>

@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  
   resources :events
-  resources :providers
+
+  resources :providers do
+    resources :provider_comments
+  end
+
   devise_for :users
   get 'welcome/index'
+  
   get 'welcome/prov'
 
   # The priority is based upon order of creation: first created -> highest priority.

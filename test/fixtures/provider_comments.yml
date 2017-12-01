@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  mensaje: MyText
+  servicio: 1
+  atencion: 1
+  calidad: 1
+  provider_id: 
+
+two:
+  nombre: MyString
+  mensaje: MyText
+  servicio: 1
+  atencion: 1
+  calidad: 1
+  provider_id: 

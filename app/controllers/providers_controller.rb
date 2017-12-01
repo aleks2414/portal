@@ -11,6 +11,8 @@ class ProvidersController < ApplicationController
   # GET /providers/1
   # GET /providers/1.json
   def show
+    @provider_comment = @provider.provider_comments.new
+    @provider_comments = @provider.provider_comments
   end
 
   # GET /providers/new

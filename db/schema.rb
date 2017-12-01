@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129173023) do
+ActiveRecord::Schema.define(version: 20171201165257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,19 @@ ActiveRecord::Schema.define(version: 20171129173023) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "provider_comments", force: :cascade do |t|
+    t.string   "nombre"
+    t.text     "mensaje"
+    t.integer  "servicio"
+    t.integer  "atencion"
+    t.integer  "calidad"
+    t.integer  "provider_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "provider_comments", ["provider_id"], name: "index_provider_comments_on_provider_id", using: :btree
+
   create_table "providers", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "nombre"
@@ -103,5 +116,6 @@ ActiveRecord::Schema.define(version: 20171129173023) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "events", "users"
+  add_foreign_key "provider_comments", "providers"
   add_foreign_key "providers", "users"
 end
