@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201165257) do
+ActiveRecord::Schema.define(version: 20171202135155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "nombre"
+    t.text     "mensaje"
+    t.integer  "rating"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,8 +59,10 @@ ActiveRecord::Schema.define(version: 20171201165257) do
     t.string   "joymas"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "slug"
   end
 
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -115,6 +128,7 @@ ActiveRecord::Schema.define(version: 20171201165257) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "comments", "events"
   add_foreign_key "events", "users"
   add_foreign_key "provider_comments", "providers"
   add_foreign_key "providers", "users"
