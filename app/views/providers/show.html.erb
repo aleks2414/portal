@@ -137,6 +137,10 @@
   <h6 class="star-rating" data-score=<%=provider_comment.calidad%>> </h6>
   </div>
   </div>
+  <% if current_user %>
+  <br>
+  <%= link_to "Eliminar Comentario", provider_provider_comment_path(@provider, provider_comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
   </div>
   </div>
   <% end %>

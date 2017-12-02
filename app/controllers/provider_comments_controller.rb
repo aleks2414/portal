@@ -58,7 +58,7 @@ class ProviderCommentsController < ApplicationController
   def destroy
     @provider_comment.destroy
     respond_to do |format|
-      format.html { redirect_to provider_comments_url, notice: 'Provider comment was successfully destroyed.' }
+      format.html { redirect_to @provider, notice: 'Provider comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
