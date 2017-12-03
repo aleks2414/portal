@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  get 'welcome/index'
+
+ devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
   
   get 'welcome/prov'
 

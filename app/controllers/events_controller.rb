@@ -5,14 +5,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
     @comment = Comment.new
-    @comments = @event.comments
+    @comments = @event.comments.paginate(:page => params[:page], :per_page => 4)
   end
 
   # GET /events/new
