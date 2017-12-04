@@ -5,7 +5,8 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.json
   def index
-    @providers = Provider.all
+    @q= Provider.ransack(params[:q])
+    @providers = @q.result.uniq
   end
 
   # GET /providers/1

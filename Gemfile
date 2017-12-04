@@ -28,6 +28,8 @@ gem 'ransack'
 gem 'rails_12factor', group: :production
 gem 'friendly_id', '~> 5.1.0'
 gem 'will_paginate', '~> 3.1.0'
+gem "ckeditor"
+gem "paperclip"
 
 
 # Use ActiveModel has_secure_password

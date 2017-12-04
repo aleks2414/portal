@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
     <%= f.label :nombre %><br>
     <%= f.text_field :nombre %>
   </div>
@@ -29,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.cktext_area :content %>
   </div>
   <div class="field">
     <%= f.label :fecha %><br>
@@ -39,6 +35,10 @@
     <%= f.label :lugar %><br>
     <%= f.text_field :lugar %>
   </div>
+
+  <div class="row">
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_brides %><br>
     <%= f.check_box :is_brides %>
@@ -47,6 +47,9 @@
     <%= f.label :brides %><br>
     <%= f.text_field :brides %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_tux %><br>
     <%= f.check_box :is_tux %>
@@ -55,6 +58,9 @@
     <%= f.label :tux %><br>
     <%= f.text_field :tux %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_pasteles %><br>
     <%= f.check_box :is_pasteles %>
@@ -63,6 +69,9 @@
     <%= f.label :pasteles %><br>
     <%= f.text_field :pasteles %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_latingraf %><br>
     <%= f.check_box :is_latingraf %>
@@ -71,6 +80,9 @@
     <%= f.label :latingraf %><br>
     <%= f.text_field :latingraf %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_detalles %><br>
     <%= f.check_box :is_detalles %>
@@ -79,6 +91,9 @@
     <%= f.label :detalles %><br>
     <%= f.text_field :detalles %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_latino %><br>
     <%= f.check_box :is_latino %>
@@ -87,6 +102,9 @@
     <%= f.label :latino %><br>
     <%= f.text_field :latino %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_nissi %><br>
     <%= f.check_box :is_nissi %>
@@ -95,6 +113,9 @@
     <%= f.label :nissi %><br>
     <%= f.text_field :nissi %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_gabriella %><br>
     <%= f.check_box :is_gabriella %>
@@ -103,6 +124,9 @@
     <%= f.label :gabriella %><br>
     <%= f.text_field :gabriella %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_pixen %><br>
     <%= f.check_box :is_pixen %>
@@ -111,6 +135,9 @@
     <%= f.label :pixen %><br>
     <%= f.text_field :pixen %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_pelo %><br>
     <%= f.check_box :is_pelo %>
@@ -119,6 +146,9 @@
     <%= f.label :pelo %><br>
     <%= f.text_field :pelo %>
   </div>
+  </div>
+  
+  <div class="col-sm-4">
   <div class="field">
     <%= f.label :is_joymas %><br>
     <%= f.check_box :is_joymas %>
@@ -126,6 +156,9 @@
   <div class="field">
     <%= f.label :joymas %><br>
     <%= f.text_field :joymas %>
+  </div>
+  </div>
+
   </div>
   <div class="actions">
     <%= f.submit %>

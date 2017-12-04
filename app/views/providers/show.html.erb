@@ -38,13 +38,13 @@
       <div class="col-md-6">
                 <div id="izq2">
           <h3>Información General:</h3>
-          <p><%= @provider.info_general %></p>
+          <p><%= @provider.info_general.html_safe %></p>
 
           <h3>Servicios Ofrecidos:</h3>
-          <p><%= @provider.servicios %></p>
+          <p><%= @provider.servicios.html_safe %></p>
 
           <h3>Detalles de Servicio a Domicilio:</h3>
-          <p><%= @provider.domicilio %></p>
+          <p><%= @provider.domicilio.html_safe %></p>
         </div>
       </div>
       <div class="col-md-6">

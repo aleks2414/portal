@@ -77,6 +77,21 @@ p, a {
   background-color: transparent;
 }
 
+.buttoni {
+  transition: background-color .15s linear;
+  font-size: 15px;
+  min-width: 100px;
+  border-radius: 2px;
+  height: 53px;
+  padding: 13px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-top: -2px;
+  background-color: transparent;
+}
+
 .button_purple {
   color: $purple !important;
   background-color: transparent;
@@ -287,7 +302,7 @@ p {
     }
 
     img {
-      width: 100%;
+      width: 100% !important;
     }
   }
 
@@ -553,4 +568,19 @@ input[type="date"],input[type="name"], input[type="email"], input[type="textbox"
 
 .pagination .disabled {
     color: #C0C0C0;
+}
+
+#busqui {
+  text-align: center;
+  margin: 30px 0;
+
+input[type="search"] {
+  min-width: 400px;
+  height: 53px;
+  padding-left: 10px;
+  border:none;
+  border:1.3px solid #dadada;
+  background-color: white !important;
+  }
+
 }
