@@ -11,14 +11,86 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      
+    <div class="col-md-4">
+      <div id="info_evento2">
+        <h2>Buscar eventos</h2>
+        <hr>
+
+<div id="busqui2">
+<%= search_form_for @q do |f| %>
+<%= f.search_field :nombre_cont, placeholder: "Busca eventos.."  %>
+
+<div class="row">
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_brides_eq, :value => true, :id => 'Wifi', class: "hidden" %>
+  <label for="Wifi" class="buttoni2 button_purple">Brides & Dreams</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_tux_eq, :value => true, :id => 'CafeP', class: "hidden" %>
+  <label for="CafeP" class="buttoni2 button_purple">Tux & More</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_pasteles_eq, :value => true, :id => 'LibrayP', class: "hidden" %>
+  <label for="LibrayP" class="buttoni2 button_purple">Pasteles D’Claudia</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_latingraf_eq, :value => true, :id => 'GymP', class: "hidden" %>
+  <label for="GymP" class="buttoni2 button_purple">LatinGraf</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_detalles_eq, :value => true, :id => 'LocationP', class: "hidden" %>
+  <label for="LocationP" class="buttoni2 button_purple">Detalles Mágicos Location</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_latino_eq, :value => true, :id => 'LunchP', class: "hidden" %>
+  <label for="LunchP" class="buttoni2 button_purple">Son Latino</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_nissi_eq, :value => true, :id => 'JobP', class: "hidden" %>
+  <label for="JobP" class="buttoni2 button_purple">Nissi</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_gabriella_eq, :value => true, :id => 'StudyP', class: "hidden" %>
+  <label for="StudyP" class="buttoni2 button_purple">Gabriella Padilla</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_pixen_eq, :value => true, :id => 'SafeP', class: "hidden" %>
+  <label for="SafeP" class="buttoni2 button_purple">Pixen Foto</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_pelo_eq, :value => true, :id => 'PoolP', class: "hidden" %>
+  <label for="PoolP" class="buttoni2 button_purple">Pelo Pelo</label></span>
+  </div>
+
+  <div class="col-xs-6">
+  <span> <%= f.check_box :is_joymas_eq, :value => true, :id => 'ResidenceP', class: "hidden" %>
+  <label for="ResidenceP" class="buttoni2 button_purple">Joymas</label></span>
+  </div>
+
+</div>  
+
+
+<%= f.submit "Buscar", class: "button button_purple button_block" %>
+<% end %>
+</div>
+
+      </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-8">
       <div class="row">
         <% @events.each do |event| %>
-        <div class="col-md-4 col-xs-6">
+        <div class="col-md-4 col-sm-6">
           <div id="eventos_reales">
             <%= link_to event do %>
             <div class="imagen">
@@ -28,6 +100,7 @@
             <h2><%=event.nombre %></h2>
             <p><%=event.fecha %><p>
             <h5><%=event.lugar %></h5>
+             <h6 class="star-rating" data-score=<%=event.average_rating%>> </h6>
             <% end %>
     </div>
         </div>
@@ -51,3 +124,17 @@
 <%= link_to 'New Event', new_event_path %>
 <% end %>
 </div>
+
+
+
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/apps',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

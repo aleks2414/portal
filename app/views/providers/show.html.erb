@@ -18,6 +18,12 @@
           <h6><span class="fa fa-calendar"></span> Citas: <%=@provider.anticipacion%></h6>
           <h6><span class="fa fa-phone"></span><a href="<%=@provider.telefono %>"> Teléfono: <%=@provider.telefono %></a></h6>
           <h6><span class="fa fa-envelope"></span><a href="mailto:<%=@provider.correo%>?Subject=Solicitud%20de%20información"> <%=@provider.correo%></a></h6>
+          <p>Servicio:</p>
+          <h6 class="star-rating" data-score=<%=@provider.average_servicio%>> </h6>
+          <p>Atención:</p>
+          <h6 class="star-rating" data-score=<%=@provider.average_atencion%>> </h6>
+          <p>Calidad:</p>
+          <h6 class="star-rating" data-score=<%=@provider.average_calidad%>> </h6>
 
           <%= link_to "Más información", root_path, class: "button button_purple" %>
         </div>

@@ -5,7 +5,28 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.paginate(:page => params[:page], :per_page => 20)
+
+if params[:q].present?
+   clear_boolean(params[:q], :is_brides_eq)
+   clear_boolean(params[:q], :is_tux_eq)
+   clear_boolean(params[:q], :is_pasteles_eq)
+   clear_boolean(params[:q], :is_latingraf_eq)
+   clear_boolean(params[:q], :is_detalles_eq)
+   clear_boolean(params[:q], :is_latino_eq)
+   clear_boolean(params[:q], :is_nissi_eq)
+   clear_boolean(params[:q], :is_gabriella_eq)
+   clear_boolean(params[:q], :is_pixen_eq)
+   clear_boolean(params[:q], :is_pelo_eq)
+   clear_boolean(params[:q], :is_joymas_eq)
+ end
+
+    @q= Event.ransack(params[:q])
+    @events = @q.result.uniq
+    @events = @events.paginate(:page => params[:page], :per_page => 20)
+  end
+
+   def clear_boolean(q, condition)
+    q.delete(condition) if q[condition] == "0"
   end
 
   # GET /events/1
