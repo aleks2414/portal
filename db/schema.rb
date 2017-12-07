@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203195502) do
+ActiveRecord::Schema.define(version: 20171207155351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20171203195502) do
   end
 
   add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
+
+  create_table "event_attachments", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "event_attachments", ["event_id"], name: "index_event_attachments_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
@@ -95,6 +104,15 @@ ActiveRecord::Schema.define(version: 20171203195502) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "provider_attachments", force: :cascade do |t|
+    t.integer  "provider_id"
+    t.string   "image2"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "provider_attachments", ["provider_id"], name: "index_provider_attachments_on_provider_id", using: :btree
+
   create_table "provider_comments", force: :cascade do |t|
     t.string   "nombre"
     t.text     "mensaje"
@@ -146,7 +164,9 @@ ActiveRecord::Schema.define(version: 20171203195502) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "comments", "events"
+  add_foreign_key "event_attachments", "events"
   add_foreign_key "events", "users"
+  add_foreign_key "provider_attachments", "providers"
   add_foreign_key "provider_comments", "providers"
   add_foreign_key "providers", "users"
 end

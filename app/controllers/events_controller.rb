@@ -34,11 +34,13 @@ if params[:q].present?
   def show
     @comment = Comment.new
     @comments = @event.comments.paginate(:page => params[:page], :per_page => 4)
+    @event_attachments = @event.event_attachments.all
   end
 
   # GET /events/new
   def new
     @event = Event.new
+    @event_attachment = @event.event_attachments.build
   end
 
   # GET /events/1/edit
@@ -51,15 +53,16 @@ if params[:q].present?
     @event = Event.new(event_params)
     @event.user_id = current_user.id
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+   respond_to do |format|
+     if @event.save
+       params[:event_attachments]['image'].each do |a|
+          @event_attachment = @event.event_attachments.create!(:image => a,     :event_id => @event.id)
+       end
+       format.html { redirect_to @event, notice: 'event was successfully     created.' }
+     else
+       format.html { render action: 'new' }
+     end
+   end
   end
 
   # PATCH/PUT /events/1
@@ -94,6 +97,6 @@ if params[:q].present?
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:user_id, :nombre, :categoria, :video_url, :content, :fecha, :lugar, :is_brides, :brides, :is_tux, :tux, :is_pasteles, :pasteles, :is_latingraf, :latingraf, :is_detalles, :detalles, :is_latino, :latino, :is_nissi, :nissi, :is_gabriella, :gabriella, :is_pixen, :pixen, :is_pelo, :pelo, :is_joymas, :joymas)
+      params.require(:event).permit(:user_id, :nombre, :categoria, :video_url, :content, :fecha, :lugar, :is_brides, :brides, :is_tux, :tux, :is_pasteles, :pasteles, :is_latingraf, :latingraf, :is_detalles, :detalles, :is_latino, :latino, :is_nissi, :nissi, :is_gabriella, :gabriella, :is_pixen, :pixen, :is_pelo, :pelo, :is_joymas, :joymas, event_attachments_attributes: [:id, :event_id, :image])
     end
 end

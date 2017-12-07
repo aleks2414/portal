@@ -2,6 +2,9 @@ class Provider < ActiveRecord::Base
   belongs_to :user
   has_many :provider_comments
 
+ has_many :provider_attachments
+ accepts_nested_attributes_for :provider_attachments
+
   extend FriendlyId
   friendly_id :nombre, use: :slugged
 

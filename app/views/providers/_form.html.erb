@@ -47,6 +47,14 @@
     <%= f.label :domicilio %><br>
     <%= f.cktext_area :domicilio %>
   </div>
+
+<%= f.fields_for :provider_attachments do |p| %>
+     <div class="field">
+       <%= p.label :image2 %><br>
+       <%= p.file_field :image2, :multiple => true, name: "provider_attachments[image2][]" %>
+     </div>
+   <% end %>
+
   <div class="actions">
     <%= f.submit class: "button button_purple" %>
   </div>

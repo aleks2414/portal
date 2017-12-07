@@ -14,11 +14,13 @@ class ProvidersController < ApplicationController
   def show
     @provider_comment = ProviderComment.new
     @provider_comments = @provider.provider_comments.paginate(:page => params[:page], :per_page => 6)
+    @provider_attachments = @provider.provider_attachments.all
   end
 
   # GET /providers/new
   def new
     @provider = Provider.new
+    @provider_attachment = @provider.provider_attachments.build
   end
 
   # GET /providers/1/edit
@@ -31,15 +33,16 @@ class ProvidersController < ApplicationController
     @provider = Provider.new(provider_params)
     @provider.user_id = current_user.id
 
-    respond_to do |format|
-      if @provider.save
-        format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
-        format.json { render :show, status: :created, location: @provider }
-      else
-        format.html { render :new }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
-      end
-    end
+   respond_to do |format|
+     if @provider.save
+       params[:provider_attachments]['image2'].each do |a|
+          @provider_attachment = @provider.provider_attachments.create!(:image2 => a,     :provider_id => @provider.id)
+       end
+       format.html { redirect_to @provider, notice: 'provider was successfully     created.' }
+     else
+       format.html { render action: 'new' }
+     end
+   end
   end
 
   # PATCH/PUT /providers/1
@@ -74,6 +77,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:user_id, :nombre, :foto, :productos, :anticipacion, :telefono, :correo, :info_general, :servicios, :domicilio)
+      params.require(:provider).permit(:user_id, :nombre, :foto, :productos, :anticipacion, :telefono, :correo, :info_general, :servicios, :domicilio, provider_attachments_attributes: [:id, :provider_id, :image2])
     end
 end

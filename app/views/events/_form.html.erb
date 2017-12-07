@@ -160,6 +160,14 @@
   </div>
 
   </div>
+
+<%= f.fields_for :event_attachments do |p| %>
+     <div class="field">
+       <%= p.label :image %><br>
+       <%= p.file_field :image, :multiple => true, name: "event_attachments[image][]" %>
+     </div>
+   <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

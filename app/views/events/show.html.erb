@@ -3,8 +3,41 @@
   <div class="row">
     <div class="col-md-8">
       <div id="n_evento">
-        <%= image_tag "prueba.jpg" %>
+        <%= image_tag @event.event_attachments[0].image.url %>
         <p><%= @event.content.html_safe %></p>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+              <% if @event_attachments %>
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <% @event_attachments.drop(1).each do |event_attachment| %>
+                <li data-target="#myCarousel" data-slide-to="<%= event_attachment.id %>"></li>
+                <% end %> 
+              </ol>       
+              <% end %>     
+
+              <div class="carousel-inner" role="listbox">
+                <% if @event_attachments %>        
+                <% @event_attachments.drop(1).each do |event_attachment| %>
+                <div class="item <%= 'active' if event_attachment.id == @event_attachments[1].id %>">          
+                  <%= image_tag event_attachment.image.url %>
+                </div>
+                <% end %> 
+                <% end %>
+              </div>
+
+              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <!-- End Carousel -->
+
       </div>
     </div>
     <div class="col-md-4">

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   
+  resources :provider_attachments
+  resources :event_attachments
   mount Ckeditor::Engine => '/ckeditor'
   resources :events do
     resources :comments
