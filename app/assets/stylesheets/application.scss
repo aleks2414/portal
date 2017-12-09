@@ -161,7 +161,7 @@ p, a {
 }
 
 .cover_brides {
-  background-image: image-url("cover.png");
+  
   height: 45vh;
 }
 
@@ -627,6 +627,15 @@ input[type="search"] {
 
 }
 
+.login {
+    width: 200px;
+    height: 200px;
+    display: block;
+    overflow: hidden;
+    img {
+      width: 100%;
+}
+}
 
 #myCarousel {
   margin-top: 30px;

@@ -20,7 +20,7 @@
     <div id="prov_reales">
       <%= link_to provider do %>
       <div class="imagen">
-      <%= image_tag "prueba.jpg" %>
+      <%= image_tag provider.provider_attachments[0].image2.url %>
       </div>
       <h2><%= provider.nombre %></h2>
       <p><%= provider.productos %><p>

@@ -1,6 +1,7 @@
 class Provider < ActiveRecord::Base
   belongs_to :user
   has_many :provider_comments
+  mount_uploader :foto, FotoUploader
 
  has_many :provider_attachments
  accepts_nested_attributes_for :provider_attachments

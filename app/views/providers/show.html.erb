@@ -1,4 +1,4 @@
-<div id= "banner" class="cover_brides">
+<div id= "banner" class="cover_brides" style="background-image: url(<%= @provider.provider_attachments[0].image2 %>);">
   <div id="fondi">
     <div id="backi">
   <h1 class=""><%=@provider.nombre%></h1> <br>
@@ -13,18 +13,36 @@
       <!-- col6 -->
       <div class="col-md-6">
         <div id="izq1">
+          
+          <div class="row">
+          <div class="login">
+          <%= image_tag @provider.foto %>
+          </div>
+          </div>
+
           <h2><%=@provider.nombre %></h2>
           <p><%=@provider.productos%></p>
           <h6><span class="fa fa-calendar"></span> Citas: <%=@provider.anticipacion%></h6>
           <h6><span class="fa fa-phone"></span><a href="<%=@provider.telefono %>"> Teléfono: <%=@provider.telefono %></a></h6>
           <h6><span class="fa fa-envelope"></span><a href="mailto:<%=@provider.correo%>?Subject=Solicitud%20de%20información"> <%=@provider.correo%></a></h6>
+          
+          <div class="row">
+            
+          <div class="col-sm-4">
           <p>Servicio:</p>
           <h6 class="star-rating" data-score=<%=@provider.average_servicio%>> </h6>
+          </div>
+          <div class="col-sm-4">
           <p>Atención:</p>
           <h6 class="star-rating" data-score=<%=@provider.average_atencion%>> </h6>
+          </div>
+          <div class="col-sm-4">
           <p>Calidad:</p>
           <h6 class="star-rating" data-score=<%=@provider.average_calidad%>> </h6>
+          </div>
 
+          </div>
+          <br>
           <%= link_to "Más información", root_path, class: "button button_purple" %>
         </div>
       </div>
@@ -191,10 +209,7 @@
 
 
 
-<p>
-  <strong>Foto:</strong>
-  <%= @provider.foto %>
-</p>
+
 
 <% if current_user %>
 <div class="container">
