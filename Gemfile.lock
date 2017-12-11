@@ -115,10 +115,13 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    meta-tags (2.4.0)
+      actionpack (>= 3.2.0, <= 5.1.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
+    mini_magick (4.5.1)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
@@ -238,6 +241,8 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  meta-tags
+  mini_magick
   paperclip
   pg (~> 0.20.0)
   rails (= 4.2.6)

@@ -35,6 +35,15 @@ if params[:q].present?
     @comment = Comment.new
     @comments = @event.comments.paginate(:page => params[:page], :per_page => 4)
     @event_attachments = @event.event_attachments.all
+
+
+if @event.event_attachments.present?
+prepare_meta_tags(title: @event.nombre,
+  description: @event.categoria, 
+  keywords: @event.tags
+)
+end
+
   end
 
   # GET /events/new
@@ -97,6 +106,6 @@ if params[:q].present?
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:user_id, :nombre, :categoria, :video_url, :content, :fecha, :lugar, :is_brides, :brides, :is_tux, :tux, :is_pasteles, :pasteles, :is_latingraf, :latingraf, :is_detalles, :detalles, :is_latino, :latino, :is_nissi, :nissi, :is_gabriella, :gabriella, :is_pixen, :pixen, :is_pelo, :pelo, :is_joymas, :joymas, event_attachments_attributes: [:id, :event_id, :image])
+      params.require(:event).permit(:user_id, :nombre, :categoria, :video_url, :content, :fecha, :lugar, :is_brides, :brides, :is_tux, :tux, :is_pasteles, :pasteles, :is_latingraf, :latingraf, :is_detalles, :detalles, :is_latino, :latino, :is_nissi, :nissi, :is_gabriella, :gabriella, :is_pixen, :pixen, :is_pelo, :pelo, :is_joymas, :joymas, :tags, event_attachments_attributes: [:id, :event_id, :image,])
     end
 end

@@ -33,6 +33,8 @@ gem "paperclip"
 gem 'carrierwave'
 gem "figaro"
 gem "fog-aws"
+gem 'meta-tags'
+gem "mini_magick"
 
 
 # Use ActiveModel has_secure_password

@@ -15,6 +15,16 @@ class ProvidersController < ApplicationController
     @provider_comment = ProviderComment.new
     @provider_comments = @provider.provider_comments.paginate(:page => params[:page], :per_page => 6)
     @provider_attachments = @provider.provider_attachments.all
+
+
+if @provider.provider_attachments.present?
+prepare_meta_tags(title: @provider.nombre,
+  description: @provider.productos, 
+  keywords: @provider.tags
+)
+end
+
+
   end
 
   # GET /providers/new
@@ -77,6 +87,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:user_id, :nombre, :foto, :productos, :anticipacion, :telefono, :correo, :info_general, :servicios, :domicilio, provider_attachments_attributes: [:id, :provider_id, :image2])
+      params.require(:provider).permit(:user_id, :nombre, :foto, :productos, :anticipacion, :telefono, :correo, :info_general, :servicios, :domicilio, :tags, provider_attachments_attributes: [:id, :provider_id, :image2])
     end
 end
