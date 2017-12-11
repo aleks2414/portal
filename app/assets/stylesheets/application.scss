@@ -20,9 +20,9 @@
 
 $purple: #221A48;
 $yellow: #f5c329;
-$pink: #D33383;
+$pink: #8abec7;
 $grey: #828282;
-$light_grey: #f9f9f9;
+$light_grey: #FCFCFC;
 $black: #555;
 $white: #f2f2f2;
 
@@ -167,7 +167,7 @@ p, a {
 
 #fondi {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.78);
+  background-color: rgba(255, 255, 255, 0.99);
   position: absolute;
   padding: 1%;
   top: 50%;
@@ -181,7 +181,6 @@ p, a {
 }
 
 #option {
-  /*background-color: green;*/
   padding: 90px 0;
   h1, p {
     text-align: center;
@@ -223,7 +222,11 @@ p, a {
 }
 
 #eventos_reales {
-  background-color: #fafafa ;
+  background-color: white;
+border-radius: 11px;
+border: solid 1px #e2e8ea;
+-webkit-box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
+box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
   height: 350px;
   text-align: center;
   margin: 0 0 20px 0;
@@ -270,7 +273,11 @@ p {
   text-align: center;
   margin: 20px 0;
   padding: 2rem;
-  border: solid 1px $black;
+  background-color: white;
+border-radius: 11px;
+border: solid 1px #e2e8ea;
+-webkit-box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
+box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
   
 
 h2 {
@@ -363,6 +370,26 @@ p {
     }
   }
 
+  #info_evento3 {
+    /*border: solid 1px $black;*/
+    background-color: #fafafa;
+    padding: 20px 1.5%;
+    margin-bottom: 20px;
+    text-align: center;
+    h2 {
+      color: $purple;
+      font-size: 1.3em; 
+    }
+    img {
+      margin-top: 35px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
 #footer {
   background-color: #fcfcfc;
   border-top: solid 5px #f0f0f0;
@@ -418,10 +445,14 @@ p {
   }
   h3 {
     font-size: 1em;
+    margin-top: 0px;
   }
   #prov {
     height: 165px;
     margin-bottom: 20px;
+    img {
+      width: 110px;
+    }
   }
 }
 
@@ -606,23 +637,23 @@ input[type="search"] {
   margin: 30px 0;
 
 input[type="search"] {
-  width: 100%;
+  width: 95%;
   height: 53px;
-  padding-left: 10px;
+  padding-left: 20px;
   border:none;
-  border:1.3px solid #dadada;
-  background-color: white !important;
+  /*color: white !important;*/
+  border: 1px solid $light_grey;
+  background-color: #e8ecef !important;
   margin-bottom: 30px;
   }
 
   label {
     cursor:pointer;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    height: 50px;
   }
   input:checked ~ label {
-   background-color: #067892;
-   border-color: #067892;
-   color: white;
+   color: $yellow;
  }
 
 }
