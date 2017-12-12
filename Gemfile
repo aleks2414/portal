@@ -35,6 +35,7 @@ gem "figaro"
 gem "fog-aws"
 gem 'meta-tags'
 gem "mini_magick"
+gem 'rails_12factor', group: :production
 
 
 # Use ActiveModel has_secure_password
