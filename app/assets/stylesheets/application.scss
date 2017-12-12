@@ -362,6 +362,7 @@ p {
     }
     img {
       margin-top: 35px;
+      width: 100px;
     }
 
     iframe {
@@ -654,6 +655,10 @@ input[type="search"] {
   }
   input:checked ~ label {
    color: $yellow;
+ }
+
+ img {
+  width: 70%;
  }
 
 }
