@@ -49,38 +49,13 @@
       <!-- col6 -->
       <div class="col-md-6">
         <div id="dre">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-              <% if @provider_attachments %>
-              <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <% @provider_attachments.each do |provider_attachment| %>
-                <li data-target="#myCarousel" data-slide-to="<%= provider_attachment.id %>"></li>
-                <% end %> 
-              </ol>       
-              <% end %>     
-
-              <div class="carousel-inner" role="listbox">
-                <% if @provider_attachments %>        
-                <% @provider_attachments.each do |provider_attachment| %>
-                <div class="item <%= 'active' if provider_attachment.id == @provider_attachments[0].id %>">          
-                  <%= image_tag provider_attachment.image2.url %>
-                </div>
-                <% end %> 
-                <% end %>
-              </div>
-
-              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-            <!-- End Carousel -->
-</div>
+          <div class="owl-carousel">
+            <% @provider_attachments.each do |provider_attachment| %>
+            <div><%= image_tag provider_attachment.image2.url %></div>
+            <% end %>
+          </div>
+        </div>
           </div>
         </div>
       </div>
@@ -219,7 +194,14 @@
 </div>
 <% end %>
 
-
+<script>
+  $(".owl-carousel").owlCarousel(
+    {
+    items:1,
+    margin:10,
+    autoWidth:true,
+    });
+</script>
 
 <script>
     $('.star-rating').raty({
