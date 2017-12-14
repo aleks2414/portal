@@ -54,11 +54,11 @@ class ProviderAttachmentsController < ApplicationController
   # DELETE /provider_attachments/1
   # DELETE /provider_attachments/1.json
   def destroy
+    @provider_attachment = ProviderAttachment.find(params[:id])
+    provider = @provider_attachment.provider
     @provider_attachment.destroy
-    respond_to do |format|
-      format.html { redirect_to provider_attachments_url, notice: 'Provider attachment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @provider_attachments = ProviderAttachment.where(provider_id: provider.id)
+    respond_to :js
   end
 
   private

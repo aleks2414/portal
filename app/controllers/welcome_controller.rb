@@ -5,4 +5,8 @@ class WelcomeController < ApplicationController
 
   def prov
   end
+
+  def nosotros
+  	
+  end
 end

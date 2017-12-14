@@ -1,0 +1,172 @@
+<div id= "banner" class="cover_about">
+	<div id="fondi">
+		<div id="backi">
+	<h1 class="">Acerca de <span class="curly">Nosotros</span></h1> <br>
+		</div>
+	</div>
+</div>
+
+
+<div id="option">
+	<div class="container">
+	<h1>¿Quiénes somos?</h1>
+	<hr>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi sequi minima vero ad dolorem ducimus facere fugiat, voluptatem at magni voluptate ipsa optio enim deleniti atque qui culpa! Officiis, tempore.</p>
+
+<div id="magico2">
+
+
+	<div id="breadi">
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Junio 2012</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Agosto 2012</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Enero 2014</button>
+  <button class="tablinks" onclick="openCity(event, 'Mexico')">Noviembre 2017</button>
+</div>
+	</div>
+
+<div id="London" class="tabcontent">
+	<div id="cardon">
+		<div class="row">
+			<div class="col-md-3">
+				<%= image_tag "prueba.jpg" %>
+			</div>
+			<div class="col-md-8">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae dolore molestiae inventore deleniti minus, totam incidunt quis, sapiente quas, quo quidem reprehenderit molestias aperiam pariatur. Voluptatum pariatur minima itaque voluptate.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="Paris" class="tabcontent">
+	<div id="cardon">
+		<div class="row">
+			<div class="col-md-3">
+				<%= image_tag "prueba.jpg" %>
+			</div>
+			<div class="col-md-8">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae dolore molestiae inventore deleniti minus, totam incidunt quis, sapiente quas, quo quidem reprehenderit molestias aperiam pariatur. Voluptatum pariatur minima itaque voluptate.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+	<div id="cardon">
+		<div class="row">
+			<div class="col-md-3">
+				<%= image_tag "prueba.jpg" %>
+			</div>
+			<div class="col-md-8">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae dolore molestiae inventore deleniti minus, totam incidunt quis, sapiente quas, quo quidem reprehenderit molestias aperiam pariatur. Voluptatum pariatur minima itaque voluptate.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="Mexico" class="tabcontent">
+	<div id="cardon">
+		<div class="row">
+			<div class="col-md-3">
+				<%= image_tag "prueba.jpg" %>
+			</div>
+			<div class="col-md-8">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae dolore molestiae inventore deleniti minus, totam incidunt quis, sapiente quas, quo quidem reprehenderit molestias aperiam pariatur. Voluptatum pariatur minima itaque voluptate.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+</div>
+</div>
+
+
+<div id="option" class="grey">
+	<div class="container">
+		<h1>Nuestro trayecto en 12 años</h1>
+		<hr>
+	<div class="row">
+		<div class="col-md-4">
+			<div id="nume">
+				<%= image_tag "prueba.jpg" %>
+				<h5><span class="curly">500</span> vestidos vendidos</h5>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div id="nume">
+				<%= image_tag "prueba.jpg" %>
+				<h5><span class="curly">500</span> vestidos vendidos</h5>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div id="nume">
+				<%= image_tag "prueba.jpg" %>
+				<h5><span class="curly">500</span> vestidos vendidos</h5>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div id="nume">
+				<%= image_tag "prueba.jpg" %>
+				<h5><span class="curly">500</span> vestidos vendidos</h5>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div id="nume">
+				<%= image_tag "prueba.jpg" %>
+				<h5><span class="curly">500</span> vestidos vendidos</h5>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div id="nume">
+				<%= image_tag "prueba.jpg" %>
+				<h5><span class="curly">500</span> vestidos vendidos</h5>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div id="option">
+<div class="owl-carousel">
+          <div> <%= image_tag "us01.png" %> </div>
+          <div> <%= image_tag "us02.png" %> </div>
+          <div> <%= image_tag "us03.png" %> </div>
+          <div> <%= image_tag "us04.png" %> </div>
+				</div>
+</div>
+
+
+<script>
+	$(".owl-carousel").owlCarousel(
+		{
+		items:4,
+    margin:10,
+    autoWidth:true
+		});
+</script>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

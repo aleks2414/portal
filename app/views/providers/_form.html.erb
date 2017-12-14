@@ -54,14 +54,24 @@
     <%= f.cktext_area :domicilio %>
   </div>
 
-<%= f.fields_for :provider_attachments do |p| %>
-     <div class="field">
-       <%= p.label :image2 %><br>
-       <%= p.file_field :image2, :multiple => true, name: "provider_attachments[image2][]" %>
-     </div>
-   <% end %>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">              
+      <span class="btn btn-default">
+        <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos 
+        <%= file_field_tag "images_p[]", type: :file, multiple: true %>
+      </span>
+    </div>    
+  </div>
+</div>
+
+<div id="photos_p"><%= render 'provider_attachments/list' %></div>
 
   <div class="actions">
     <%= f.submit class: "button button_purple" %>
   </div>
 <% end %>
+
+<br><br>

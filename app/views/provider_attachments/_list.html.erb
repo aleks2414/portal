@@ -1,0 +1,22 @@
+<% if @provider_attachments %>
+
+	<div class="row">
+		<% @provider_attachments.each do |provider_attachment| %>		
+			<div class="col-md-4">
+				<div class="panel panel-default">
+				  <div class="panel-heading preview">
+				  	<%= image_tag provider_attachment.image2.url() %>
+				  </div>
+				  <div class="panel-body">
+				  	<span class="pull-right">
+				  		<%= link_to provider_attachment, remote: true, method: :delete, data: {confirm: "Are you sure?"} do %>
+					  		<i class="fa fa-times fa-lg"></i>
+				  		<% end %>
+				  	</span>
+				  </div>
+				</div>
+			</div>
+		<% end %>			
+	</div>
+
+<% end %>

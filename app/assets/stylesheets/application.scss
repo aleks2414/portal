@@ -163,8 +163,12 @@ p, a {
 }
 
 .cover_brides {
-  
   height: 45vh;
+}
+
+.cover_about {
+  height: 45vh;
+  background-image: image-url("cover.png");
 }
 
 #fondi {
@@ -417,8 +421,7 @@ p {
   }
 
   #footer_right {
-    padding-left: 50px;
-    border-left: solid 1px white;
+    text-align: left;
 
   span {
     color: $purple;
@@ -679,8 +682,20 @@ input[type="search"] {
   margin-top: 30px;
 }
 
-#bread {
+#bread, #breadi {
   text-align: center;
+}
+
+#breadi {
+.tab button.active {
+    background-color: $pink;
+    color: white;
+} 
+
+.tab button:hover {
+    background-color: #ebebeb;
+}
+
 }
 
 /* Style the tab */
@@ -721,4 +736,49 @@ input[type="search"] {
       -webkit-box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
       box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
     background-color: white;
+}
+
+
+#magico2 {
+  padding: 1%;
+  margin-top: 40px;
+  #magico {
+    border: solid 1px #555;
+    padding: 3%;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+    }
+    p {
+      text-align: left;
+    }
+  }
+}
+
+#nume {
+  text-align: center;
+  margin-bottom: 25px;
+  img {
+    width: 100px;
+  }
+}
+
+#cardon {
+  img {
+    width: 100%;
+  }
+  p {
+    text-align: left;
+  }
+}
+
+.panel-heading.preview {
+  text-align: center;
+  padding: 0;
+}
+
+.panel-heading.preview img{  
+  max-width: 100%;
+  height: 200px;
+  overflow: hidden;
 }

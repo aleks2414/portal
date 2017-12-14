@@ -35,6 +35,7 @@ end
 
   # GET /providers/1/edit
   def edit
+    @provider_attachments = @provider.provider_attachments
   end
 
   # POST /providers
@@ -43,29 +44,36 @@ end
     @provider = Provider.new(provider_params)
     @provider.user_id = current_user.id
 
-   respond_to do |format|
-     if @provider.save
-       params[:provider_attachments]['image2'].each do |a|
-          @provider_attachment = @provider.provider_attachments.create!(:image2 => a,     :provider_id => @provider.id)
-       end
-       format.html { redirect_to @provider, notice: 'provider was successfully     created.' }
-     else
-       format.html { render action: 'new' }
-     end
-   end
+if @provider.save
+
+      if params[:images_p] 
+        params[:images_p].each do |image|
+          @provider.provider_attachments.create(image2: image)
+        end
+      end
+
+      @provider_attachments = @provider.provider_attachments
+      redirect_to edit_provider_path(@provider), notice: "Saved..."
+    else
+      render :new
+    end
+       
   end
 
   # PATCH/PUT /providers/1
   # PATCH/PUT /providers/1.json
   def update
-    respond_to do |format|
       if @provider.update(provider_params)
-        format.html { redirect_to @provider, notice: 'Provider was successfully updated.' }
-        format.json { render :show, status: :ok, location: @provider }
-      else
-        format.html { render :edit }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
+
+      if params[:images_p] 
+        params[:images_p].each do |image|
+          @provider.provider_attachments.create(image2: image)
+        end
       end
+
+      redirect_to edit_provider_path(@provider), notice: "Updated..."
+    else
+      render :edit
     end
   end
 
