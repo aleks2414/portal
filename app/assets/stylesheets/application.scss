@@ -783,3 +783,60 @@ input[type="search"] {
   height: 200px;
   overflow: hidden;
 }
+
+#contact {
+  margin-top: -50%;
+  margin-bottom: 12%;
+  background-color: white;
+      border: solid 1px #e2e8ea;
+      -webkit-box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
+      box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
+  padding: 3%;
+
+input[type="url"],input[type="date"],input[type="name"], input[type="email"], input[type="textbox"], input[type="number"], input[type="tel"], input[type="text"], input[type="password"], textarea, select {
+  width: 100%;
+  height: 3.5rem;
+  border:none;
+  border:1.3px solid #dadada;
+  margin-bottom: .5rem;
+  background-color: white !important;
+  padding-left: 10px;
+  }
+
+  textarea {
+    height: 10rem !important;
+  }
+
+  label {
+  margin-top: 1rem;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #555;
+}
+
+  #cont_izq {
+    padding: 0 4%;
+  }
+
+  #cont_der {
+  #zona {
+  margin-top: 20px;
+}
+  }
+}
+
+#googleMap {
+  margin-top: 5rem;
+  width: 100%;
+  height: 300px;
+}
+
+#iconos {
+  text-align: center;
+  span {
+    font-size: 20px;
+    margin: 0 20px;
+  }
+}

@@ -1,0 +1,125 @@
+<div id= "banner" class="cover_home">
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div id="contact">
+				<div class="row">
+						<div id="cont_izq">
+							<h1 class="center">Contáctanos</h1>
+							<hr>
+							<p class="center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nemo distinctio explicabo architecto esse maxime tempora animi atque, natus provident, sint commodi ipsam non illo aperiam ab repudiandae corporis. Molestias!</p>
+							<%= form_for @contact do |f| %>
+							<div class="field">
+								<%= f.label :name %><br>
+								<%= f.text_field :name, required:true %>
+							</div>
+
+						<div class="row">
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :email %><br>
+								<%= f.email_field :email, required:true %>
+							</div>
+							</div>
+
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :phone %><br>
+								<%= f.text_field :phone %>
+							</div>
+							</div>
+						</div>
+							
+						<div class="row">
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :city %><br>
+								<%= f.text_field :city, required:true %>
+							</div>
+							</div>
+
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :event %><br>
+								<%= f.text_field :event %>
+							</div>
+							</div>
+						</div>
+
+							<div class="row">
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :rol %><br>
+								<%= f.text_field :rol %>
+							</div>
+							</div>
+
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :date %><br>
+								<%= f.date_field :date, required:true %>
+							</div>
+							</div>
+							</div>
+
+							<div class="field">
+								<%= f.label :comments %><br>
+								<%= f.text_area :comments %>
+							</div>
+
+							<div class="hidden">
+								<%= f.label :nickname %><br>
+								<%= f.text_field :nickname, hint: 'Esto se queda en blanco' %>
+							</div>
+
+							<br>
+							<div class="but">
+								<%= f.submit "Enviar", class:"button button_yellow but"%>
+							</div>
+							<br>
+							<% end %>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="iconos">
+	<h3>Síguenos</h3>
+	<hr>
+	<%= link_to "https://www.facebook.com/PBGuate" do %>
+	<span class="fa fa-facebook"></span>
+	<% end %>
+
+	<%= link_to "https://www.instagram.com/portalbe/" do %>
+	<span class="fa fa-instagram"></span>
+	<% end %>
+</div>
+
+<div id="googleMap"></div>
+
+<script>
+function initialize()
+{
+  var mapProp = {
+    center: new google.maps.LatLng(14.6004016,-90.5214415),
+    scrollwheel: false,
+    zoom:16,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+
+function loadScript()
+{
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyCCXph4Sx9MklyoSlZ4JH-FCryYgRRgWi4&callback=initialize";
+  document.body.appendChild(script);
+}
+
+window.onload = loadScript;
+</script>
