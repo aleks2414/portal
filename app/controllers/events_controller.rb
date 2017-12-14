@@ -54,6 +54,7 @@ end
 
   # GET /events/1/edit
   def edit
+    @event_attachments = @event.event_attachments
   end
 
   # POST /events
@@ -67,7 +68,7 @@ end
        params[:event_attachments]['image'].each do |a|
           @event_attachment = @event.event_attachments.create!(:image => a,     :event_id => @event.id)
        end
-       format.html { redirect_to @event, notice: 'event was successfully     created.' }
+       format.html { redirect_to edit_event_path(@event), notice: 'event was successfully     created.' }
      else
        format.html { render action: 'new' }
      end
@@ -77,15 +78,16 @@ end
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+   respond_to do |format|
+     if @event.save
+       params[:event_attachments]['image'].each do |a|
+          @event_attachment = @event.event_attachments.create!(:image => a,     :event_id => @event.id)
+       end
+       format.html { redirect_to edit_event_path(@event), notice: 'event was successfully     edited.' }
+     else
+       format.html { render action: 'new' }
+     end
+   end
   end
 
   # DELETE /events/1
@@ -106,6 +108,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:user_id, :nombre, :categoria, :video_url, :content, :fecha, :lugar, :is_brides, :brides, :is_tux, :tux, :is_pasteles, :pasteles, :is_latingraf, :latingraf, :is_detalles, :detalles, :is_latino, :latino, :is_nissi, :nissi, :is_gabriella, :gabriella, :is_pixen, :pixen, :is_pelo, :pelo, :is_joymas, :joymas, :tags, event_attachments_attributes: [:id, :event_id, :image,])
+      params.require(:event).permit(:user_id, :nombre, :categoria, :video_url, :content, :fecha, :lugar, :is_brides, :brides, :is_tux, :tux, :is_pasteles, :pasteles, :is_latingraf, :latingraf, :is_detalles, :detalles, :is_latino, :latino, :is_nissi, :nissi, :is_gabriella, :gabriella, :is_pixen, :pixen, :is_pelo, :pelo, :is_joymas, :joymas, :tags, event_attachments_attributes: [:id, :event_id, :image])
     end
 end

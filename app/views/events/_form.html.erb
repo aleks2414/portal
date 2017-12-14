@@ -166,15 +166,24 @@
   </div>
 
   </div>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">              
+      <span class="btn btn-default">
+        <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos 
+        <%= f.file_field :image, name: "event_attachments[image][]" %>
+      </span>
+    </div>    
+  </div>
+</div>
 
-<%= f.fields_for :event_attachments do |p| %>
-     <div class="field">
-       <%= p.label :image %><br>
-       <%= p.file_field :image, :multiple => true, name: "event_attachments[image][]" %>
-     </div>
-   <% end %>
+<div id="photos_e"><%= render 'event_attachments/list' %></div>
+   
 
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit class: "button button_purple" %><%= link_to "Ver Evento", @event, class: "button button_yellow" %>
+  </div> 
 <% end %>
+
+<br><br>

@@ -70,8 +70,8 @@
 <div id="photos_p"><%= render 'provider_attachments/list' %></div>
 
   <div class="actions">
-    <%= f.submit class: "button button_purple" %>
-  </div>
+    <%= f.submit class: "button button_purple" %><%= link_to "Ver Proveedor", @provider, class: "button button_yellow" %>
+  </div> 
 <% end %>
 
 <br><br>

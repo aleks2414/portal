@@ -54,11 +54,11 @@ class EventAttachmentsController < ApplicationController
   # DELETE /event_attachments/1
   # DELETE /event_attachments/1.json
   def destroy
+    @event_attachment = EventAttachment.find(params[:id])
+    event = @event_attachment.event
     @event_attachment.destroy
-    respond_to do |format|
-      format.html { redirect_to event_attachments_url, notice: 'Event attachment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @event_attachments = EventAttachment.where(event_id: event.id)
+    respond_to :js
   end
 
   private
