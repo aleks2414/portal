@@ -33,7 +33,7 @@
                         <li><a href="<%=events_path%>">Eventos Reales</a></li>
                         <li><a href="https://medium.com/portal-de-bodas">Inspírate</a></li>
                         <li><a href="<%=nosotros_path%>">Nosotros</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="<%=new_contact_path %>">Contacto</a></li>
                         <% if user_signed_in? %>
                         <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
                         <% end %>
@@ -113,7 +113,7 @@
            <%= link_to nosotros_path do %>
            <p>Nosotros</p>
            <% end %>
-           <%= link_to root_path do %>
+           <%= link_to new_contact_path do %>
            <p>Contacto</p>
            <% end %>
         </div>
