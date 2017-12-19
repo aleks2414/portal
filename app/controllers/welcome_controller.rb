@@ -9,4 +9,8 @@ class WelcomeController < ApplicationController
   def nosotros
   	
   end
+
+  def citas
+  	@appointments = Appointment.all
+  end
 end

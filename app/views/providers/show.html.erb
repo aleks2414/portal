@@ -78,7 +78,71 @@
         </div>
       </div>
       <div class="col-md-6">
-      
+      <!-- form -->
+
+<%= form_for [@provider, @appointment] do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start %><br>
+    <%= f.datetime_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :end %><br>
+    <%= f.datetime_select :end %>
+  </div>
+  <div class="field">
+    <%= f.label :servicio_tienda %><br>
+    <%= f.text_field :servicio_tienda %>
+  </div>
+  <div class="field">
+    <%= f.label :servicio_domicilio %><br>
+    <%= f.text_field :servicio_domicilio %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :evento %><br>
+    <%= f.text_field :evento %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.text_field :correo %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :status_one %><br>
+    <%= f.text_field :status_one %>
+  </div>
+  <div class="field">
+    <%= f.label :status_two %><br>
+    <%= f.text_field :status_two %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
       </div>  
       </div>
     </div>

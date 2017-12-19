@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  
   resources :provider_attachments
   resources :event_attachments
   resources :contacts, only: [:new, :create]
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :providers do
     resources :provider_comments
+    resources :appointments
   end
 
   devise_for :users
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   
   get 'welcome/prov'
   get '/nosotros' => 'welcome#nosotros'
+  get '/citas' => 'welcome#citas'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -13,6 +13,7 @@ class ProvidersController < ApplicationController
   # GET /providers/1.json
   def show
     @provider_comment = ProviderComment.new
+    @appointment = @provider.appointments.build
     @provider_comments = @provider.provider_comments.paginate(:page => params[:page], :per_page => 6)
     @provider_attachments = @provider.provider_attachments.all
 

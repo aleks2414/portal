@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @appointment.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @appointment.end %>
+</p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @appointment.provider %>
+</p>
+
+<p>
+  <strong>Servicio tienda:</strong>
+  <%= @appointment.servicio_tienda %>
+</p>
+
+<p>
+  <strong>Servicio domicilio:</strong>
+  <%= @appointment.servicio_domicilio %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @appointment.title %>
+</p>
+
+<p>
+  <strong>Evento:</strong>
+  <%= @appointment.evento %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @appointment.correo %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @appointment.telefono %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @appointment.direccion %>
+</p>
+
+<p>
+  <strong>Status one:</strong>
+  <%= @appointment.status_one %>
+</p>
+
+<p>
+  <strong>Status two:</strong>
+  <%= @appointment.status_two %>
+</p>
+
+<%= link_to 'Edit', edit_provider_appointment_path(@provider, @appointment) %> |
+<%= link_to 'Back', provider_appointments_path %>
