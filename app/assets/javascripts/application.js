@@ -16,4 +16,9 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require owl.carousel
+//= require moment
+//= require fullcalendar
+//= require underscore
+//= require best_in_place
+//= require best_in_place.jquery-ui
 //= require_tree .

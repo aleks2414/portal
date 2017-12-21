@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<div id="calendar"></div>
+</div>
 
 <h1>Listing Appointments</h1>
 
@@ -47,3 +49,25 @@
 <br>
 
 <%= link_to 'New Appointment', new_provider_appointment_path %>
+
+
+
+<script>
+
+$(function() { // document ready
+  $('#calendar').fullCalendar({
+    defaultView: 'agendaWeek',
+header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'agendaDay,agendaTwoDay,agendaWeek,month'
+      },
+    allDaySlot: false,
+    resources: [
+        { id: 'a', title: '<%=@appointments.last.provider.nombre %>' }
+    ],
+    events: '/providers/<%=@appointments.last.provider.slug %>/appointments.json'
+  });  
+});
+
+</script>
