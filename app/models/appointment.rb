@@ -9,7 +9,7 @@ class Appointment < ActiveRecord::Base
     	if self.status_one == "Por confirmar"
         @color = 'red'
        else
-       	@color = 'green'
+       	@color = self.provider.color
        end
     end
 end

@@ -10,19 +10,22 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :start %><br>
+    <%= f.label :inicio %><br>
     <%= f.datetime_select :start %>
   </div>
+
   <div class="field">
-    <%= f.label :end %><br>
+    <%= f.label :final %><br>
     <%= f.datetime_select :end %>
   </div>
+
+<hr>
   <div class="field">
-    <%= f.label :provider_id %><br>
-    <%= f.text_field :provider_id %>
+    <%= f.label :evento %><br>
+    <%= f.select :evento, [["Boda"], ["Graduaciones"], ["Xv años"], ["Comuniones"], ["Otros"]], {:prompt => '¿Para qué evento es la cita?'} %>
   </div>
+  
   <div class="field">
     <%= f.label :servicio_tienda %><br>
     <%= f.text_field :servicio_tienda %>
@@ -31,17 +34,15 @@
     <%= f.label :servicio_domicilio %><br>
     <%= f.text_field :servicio_domicilio %>
   </div>
+
+  <hr>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :nombre %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :evento %><br>
-    <%= f.text_field :evento %>
-  </div>
-  <div class="field">
     <%= f.label :correo %><br>
-    <%= f.text_field :correo %>
+    <%= f.email_field :correo %>
   </div>
   <div class="field">
     <%= f.label :telefono %><br>
@@ -53,13 +54,13 @@
   </div>
   <div class="field">
     <%= f.label :status_one %><br>
-    <%= f.text_field :status_one %>
+    <%= f.select :status_one, [["Por confirmar"], ["Confirmado"]] %>
   </div>
   <div class="field">
     <%= f.label :status_two %><br>
-    <%= f.text_field :status_two %>
-  </div>
+    <%= f.select :status_two, [["Llegó"], ["Terminado"], ["No llegó"]] %>
+  </div> <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button button_purple" %> <br><br>
   </div>
 <% end %>

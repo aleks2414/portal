@@ -1,11 +1,13 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   before_action :set_provider
+  before_action :authenticate_user!, only: [:index]
 
   # GET /appointments
   # GET /appointments.json
   def index
     @appointments = @provider.appointments.all
+    @providers = Provider.all
   end
 
   # GET /appointments/1
@@ -58,7 +60,7 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     respond_to do |format|
-      format.html { redirect_to appointments_url, notice: 'Appointment was successfully destroyed.' }
+      format.html { redirect_to citas_path, notice: 'Appointment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

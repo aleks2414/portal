@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'welcome/prov'
   get '/nosotros' => 'welcome#nosotros'
   get '/citas' => 'welcome#citas'
+  get '/por_confirmar' => 'welcome#por_confirmar'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

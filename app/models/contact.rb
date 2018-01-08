@@ -3,6 +3,7 @@ class Contact < MailForm::Base
 	attribute :name, 					:validate => false
 	attribute :email, 				:validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
 	attribute :phone,     		:validate => false
+	attribute :provider,   		:validate => false
 	attribute :city,    			:validate => false
 	attribute :event,    			:validate => false
 	attribute :rol,    			  :validate => false

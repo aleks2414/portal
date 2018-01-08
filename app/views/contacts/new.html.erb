@@ -9,11 +9,97 @@
 						<div id="cont_izq">
 							<h1 class="center">Contáctanos</h1>
 							<hr>
-							<p class="center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus nemo distinctio explicabo architecto esse maxime tempora animi atque, natus provident, sint commodi ipsam non illo aperiam ab repudiandae corporis. Molestias!</p>
+							<p class="center">Si no encontraste lo necesario para tu evento o tienes preguntas, quejas o comentarios no dudes en ponerte en contacto con nosotros. Llena el formulario y en breve nos ponemos en contacto contigo</p> <br>
+							<p class="center">Selecciona un proveedor para contactar o deja en blanco para una consulta en general</p>
 							<%= form_for @contact do |f| %>
+
+<div class="row">
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_01" class="center todos">
+			<%=image_tag "portal_icon-01.svg"%>
+			<p>Brides & Dreams</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_02" class="center todos">
+			<%=image_tag "portal_icon-02.svg"%>
+			<p>Tux & More</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_03" class="center todos">
+			<%=image_tag "portal_icon-03.svg"%>
+			<p>Pasteles D' Claudia</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_04" class="center todos">
+			<%=image_tag "portal_icon-04.svg"%>
+			<p>LatinGraf</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_05" class="center todos">
+			<%=image_tag "portal_icon-05.svg"%>
+			<p>Detalles Mágicos</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_06" class="center todos">
+			<%=image_tag "portal_icon-06.svg"%>
+			<p>Son Latino</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_07" class="center todos">
+			<%=image_tag "portal_icon-07.svg"%>
+			<p>Nissi</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_08" class="center todos">
+			<%=image_tag "portal_icon-08.svg"%>
+			<p>Gabriella Padilla</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_09" class="center todos">
+			<%=image_tag "portal_icon-09.svg"%>
+			<p>Pixen Foto</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_10" class="center todos">
+			<%=image_tag "portal_icon-10.svg"%>
+			<p>Vacama S.A.</p>
+		</div>
+	</div>
+
+	<div class="col-md-2 col-xs-6 col-sm-4">
+		<div id="provi_11" class="center todos">
+			<%=image_tag "portal_icon-11.svg"%>
+			<p>Joymas</p>
+		</div>
+	</div>
+
+</div>
 							<div class="field">
-								<%= f.label :name %><br>
+								<%= f.label :nombre %><br>
 								<%= f.text_field :name, required:true %>
+							</div>
+
+							<div class="field hidden">
+								<%= f.label :provider %><br>
+								<%= f.text_field :provider, required:true, class: "provii" %>
 							</div>
 
 						<div class="row">
@@ -26,7 +112,7 @@
 
 							<div class="col-md-6">
 							<div class="field">
-								<%= f.label :phone %><br>
+								<%= f.label :teléfono %><br>
 								<%= f.text_field :phone %>
 							</div>
 							</div>
@@ -35,15 +121,15 @@
 						<div class="row">
 							<div class="col-md-6">
 							<div class="field">
-								<%= f.label :city %><br>
+								<%= f.label :ciudad %><br>
 								<%= f.text_field :city, required:true %>
 							</div>
 							</div>
 
 							<div class="col-md-6">
 							<div class="field">
-								<%= f.label :event %><br>
-								<%= f.text_field :event %>
+								<%= f.label :tipo_de_evento %><br>
+								<%= f.select :event, [["Boda"], ["Graduaciones"], ["Xv años"], ["Comuniones"], ["Otros"]], {:prompt => '¿Para qué evento es el contacto?'} %>
 							</div>
 							</div>
 						</div>
@@ -51,21 +137,21 @@
 							<div class="row">
 							<div class="col-md-6">
 							<div class="field">
-								<%= f.label :rol %><br>
+								<%= f.label :rol_en_el_evento %><br>
 								<%= f.text_field :rol %>
 							</div>
 							</div>
 
 							<div class="col-md-6">
 							<div class="field">
-								<%= f.label :date %><br>
+								<%= f.label :fecha_del_evento %><br>
 								<%= f.date_field :date, required:true %>
 							</div>
 							</div>
 							</div>
 
 							<div class="field">
-								<%= f.label :comments %><br>
+								<%= f.label :comentarios %><br>
 								<%= f.text_area :comments %>
 							</div>
 
@@ -100,6 +186,74 @@
 </div>
 
 <div id="googleMap"></div>
+
+<script>
+	$("#provi_01").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Brides & Dreams";
+});
+
+	$("#provi_02").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Tux & More";
+});
+
+	$("#provi_03").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Pasteles D' Claudia";
+});
+
+	$("#provi_04").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Latingraf";
+});
+
+	$("#provi_05").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Detalles Mágicos";
+});
+
+	$("#provi_06").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Son Latino";
+});
+
+	$("#provi_07").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Nissi";
+});
+
+	$("#provi_08").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Gabriella Padilla";
+});
+
+	$("#provi_09").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Pixen Foto";
+});
+
+	$("#provi_10").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Pelo Pelo";
+});
+
+	$("#provi_11").click(function(){
+		$(".todos").removeClass('active2');
+    $(this).addClass('active2');
+    document.getElementById('contact_provider').value = "Joymas";
+});
+</script>
 
 <script>
 function initialize()

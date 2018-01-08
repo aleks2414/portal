@@ -7,6 +7,7 @@ class ProvidersController < ApplicationController
   def index
     @q= Provider.ransack(params[:q])
     @providers = @q.result.uniq
+    @providers = @providers.order('id ASC')
   end
 
   # GET /providers/1
@@ -96,6 +97,6 @@ if @provider.save
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:user_id, :nombre, :foto, :productos, :anticipacion, :telefono, :correo, :info_general, :servicios, :domicilio, :tags, provider_attachments_attributes: [:id, :provider_id, :image2])
+      params.require(:provider).permit(:user_id, :nombre, :foto, :productos, :anticipacion, :telefono, :correo, :info_general, :servicios, :domicilio, :tags, :color, :servicio_list, :domicilio_list,  provider_attachments_attributes: [:id, :provider_id, :image2])
     end
 end

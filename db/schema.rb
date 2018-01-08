@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219145302) do
+ActiveRecord::Schema.define(version: 20171221041155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,10 +157,13 @@ ActiveRecord::Schema.define(version: 20171219145302) do
     t.text     "info_general"
     t.text     "servicios"
     t.text     "domicilio"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "slug"
     t.string   "tags"
+    t.string   "color",          default: "#8abec7"
+    t.string   "servicio_list"
+    t.string   "domicilio_list"
   end
 
   add_index "providers", ["slug"], name: "index_providers_on_slug", unique: true, using: :btree

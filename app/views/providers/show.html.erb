@@ -72,14 +72,36 @@
 
           <h3>Servicios Ofrecidos:</h3>
           <p><%= @provider.servicios.html_safe %></p>
-
+            
+          <% if @provider.domicilio.present? %>
           <h3>Detalles de Servicio a Domicilio:</h3>
           <p><%= @provider.domicilio.html_safe %></p>
+          <% end %>
         </div>
       </div>
       <div class="col-md-6">
       <!-- form -->
+<div id="formario">
+  <h3 class="center">Haz tu cita</h3>
+  <p class="center">Estaremos gustosos de recibirte</p>
+  <hr>
+  <div class="row center">
+<div class="col-xs-6">
+<div class="buton_tienda">
+  <%= image_tag "portal_icon-12.svg" %>
+  <p>En Tienda</p> 
+</div>
+</div>
 
+<div class="col-xs-6">
+<div class="buton_domicilio hidden">
+  <%= image_tag "portal_icon-13.svg" %>
+  <p>A domicilio</p> 
+</div>
+</div>
+
+</div>
+<br><br>
 <%= form_for [@provider, @appointment] do |f| %>
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
@@ -93,51 +115,103 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
+<div id="tienda" class="hidden">
+   <div class="field">
+    <%= f.label :fecha_y_hora_de_cita %><br>
+    <%= f.datetime_select :start, required:true %>
   </div>
+<div class="row">
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :evento %><br>
+    <%= f.select :evento, [["Boda"], ["Graduaciones"], ["Xv años"], ["Comuniones"], ["Otros"]], {:prompt => '¿Para qué evento es la cita?'} %>
+  </div>
+</div>
+  <div class="col-md-6">
   <div class="field">
     <%= f.label :servicio_tienda %><br>
     <%= f.text_field :servicio_tienda %>
   </div>
+</div>
+</div>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :title, required:true %>
+  </div>
+
+<div class="row">
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.email_field :correo, required:true %>
+  </div>
+</div>
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono, required:true %>
+  </div>
+</div>
+</div>
+  <div class="actions button_center">
+    <%= f.submit "Crear Cita", class: "button button_purple button_center" %> <br><br>
+  </div> 
+</div> 
+
+<div id="domicilio" class="hidden">
+   <div class="field">
+    <%= f.label :fecha_y_hora_de_cita %><br>
+    <%= f.datetime_select :start, required:true %>
+  </div>
+
+  <div class="row">
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :evento %><br>
+    <%= f.select :evento, [["Boda"], ["Graduaciones"], ["Xv años"], ["Comuniones"], ["Otros"]], {:prompt => '¿Para qué evento es la cita?'} %>
+  </div>
+</div>
+  <div class="col-md-6">
   <div class="field">
     <%= f.label :servicio_domicilio %><br>
     <%= f.text_field :servicio_domicilio %>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :evento %><br>
-    <%= f.text_field :evento %>
-  </div>
-  <div class="field">
-    <%= f.label :correo %><br>
-    <%= f.text_field :correo %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.text_field :telefono %>
+</div>
   </div>
   <div class="field">
     <%= f.label :direccion %><br>
     <%= f.text_field :direccion %>
   </div>
-  <div class="field">
-    <%= f.label :status_one %><br>
-    <%= f.text_field :status_one %>
-  </div>
-  <div class="field">
-    <%= f.label :status_two %><br>
-    <%= f.text_field :status_two %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
 
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :title, required:true %>
+  </div>
+
+<div class="row">
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.email_field :correo, required:true %>
+  </div>
+</div>
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono, required:true %>
+  </div>
+</div>
+</div>
+
+  <div class="actions button_center">
+    <%= f.submit "Crear Cita", class: "button button_purple button_center" %> <br><br>
+  </div>
+ 
+</div>
+
+<% end %>
+</div>
 
       </div>  
       </div>
@@ -255,11 +329,28 @@
 <% end %>
 
 <script>
+$(".buton_tienda").click(function(){
+    $("#domicilio").addClass('hidden');
+    $(this).addClass('active2');
+    $("#tienda").removeClass('hidden');
+    $(".buton_domicilio").removeClass('active2');
+});
+
+$(".buton_domicilio").click(function(){
+    $("#tienda").addClass('hidden');
+    $(this).addClass('active2');
+    $("#domicilio").removeClass('hidden');
+    $(".buton_tienda").removeClass('active2');
+});
+</script>
+
+
+<script>
   $(".owl-carousel").owlCarousel(
     {
     items:1,
     margin:10,
-    autoWidth:true,
+    autoHeight:true
     });
 </script>
 
