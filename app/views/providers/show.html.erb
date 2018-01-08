@@ -137,20 +137,20 @@
 
   <div class="field">
     <%= f.label :nombre %><br>
-    <%= f.text_field :title, required:true %>
+    <%= f.text_field :title %>
   </div>
 
 <div class="row">
   <div class="col-md-6">
   <div class="field">
     <%= f.label :correo %><br>
-    <%= f.email_field :correo, required:true %>
+    <%= f.email_field :correo %>
   </div>
 </div>
   <div class="col-md-6">
   <div class="field">
     <%= f.label :telefono %><br>
-    <%= f.text_field :telefono, required:true %>
+    <%= f.text_field :telefono %>
   </div>
 </div>
 </div>
@@ -159,56 +159,7 @@
   </div> 
 </div> 
 
-<div id="domicilio" class="hidden">
-   <div class="field">
-    <%= f.label :fecha_y_hora_de_cita %><br>
-    <%= f.datetime_select :start, required:true %>
-  </div>
 
-  <div class="row">
-  <div class="col-md-6">
-  <div class="field">
-    <%= f.label :evento %><br>
-    <%= f.select :evento, [["Boda"], ["Graduaciones"], ["Xv años"], ["Comuniones"], ["Otros"]], {:prompt => '¿Para qué evento es la cita?'} %>
-  </div>
-</div>
-  <div class="col-md-6">
-  <div class="field">
-    <%= f.label :servicio_domicilio %><br>
-    <%= f.text_field :servicio_domicilio %>
-  </div>
-</div>
-  </div>
-  <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_field :direccion %>
-  </div>
-
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :title, required:true %>
-  </div>
-
-<div class="row">
-  <div class="col-md-6">
-  <div class="field">
-    <%= f.label :correo %><br>
-    <%= f.email_field :correo, required:true %>
-  </div>
-</div>
-  <div class="col-md-6">
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.text_field :telefono, required:true %>
-  </div>
-</div>
-</div>
-
-  <div class="actions button_center">
-    <%= f.submit "Crear Cita", class: "button button_purple button_center" %> <br><br>
-  </div>
- 
-</div>
 
 <% end %>
 </div>

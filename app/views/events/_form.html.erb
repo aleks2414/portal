@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :categoria %><br>
-    <%= f.text_field :categoria %>
+    <%= f.select :categoria, [["Boda"], ["Graduaciones"], ["Xv años"], ["Comuniones"], ["Otros"]], {:prompt => '¿Para qué evento es el contacto?'} %>
   </div>
   <div class="field">
     <%= f.label :video_url %><br>
@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :fecha %><br>
-    <%= f.text_field :fecha %>
+    <%= f.date_field :fecha %>
   </div>
   <div class="field">
     <%= f.label :lugar %><br>
