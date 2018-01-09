@@ -4,8 +4,112 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Thanks for signing up, <%= @appointment.correo %>!</h1>
-    <p>Thanks for joining and have a great day! Now sign in and do
-awesome things!</p>
+
+<div id="appoint">
+        <p class="center">Gracias por hacer una cita con Portal de Bodas y Eventos <br> A continuación se encuentran los detalles de tu cita</p>
+
+        <% if @appointment.status_one == "Confirmado" %>
+        <div id="confirma" class="conf">
+        <h2>Tu cita está <%=@appointment.status_one %></h2>
+        </div>
+        <% else %>
+        <div id="confirma" class="por_conf">
+        <h2>Tu cita está <%=@appointment.status_one %></h2>
+        </div>
+        <% end %>
+<hr>
+<p>
+  <strong>Folio de Cita:</strong>
+  <%= @appointment.id %>
+</p>
+
+<div class="row">
+  <div class="col-sm-6">
+    <p>
+  <strong>Fecha de Cita:</strong> <br>
+  <%= @appointment.start %>
+  </p>
+  </div>
+
+  <div class="col-sm-6">
+    <p>
+  <strong>Hora de Cita:</strong> <br>
+  <%= @appointment.start %>
+  </p>
+  </div>
+</div>
+
+<p>
+  <strong>Proveedor:</strong> <br>
+  <%= @appointment.provider.nombre %>
+</p>
+
+<% if @appointment.servicio_tienda.present? %>
+<p>
+  <strong>Servicio tienda:</strong> <br>
+  <%= @appointment.servicio_tienda %>
+</p>
+<% end %>
+
+<% if @appointment.servicio_domicilio.present? %>
+<p>
+  <strong>Servicio Domicilio:</strong> <br>
+  <%= @appointment.servicio_domicilio %>
+</p>
+
+<p>
+  <strong>Direccion:</strong> <br>
+  <%= @appointment.direccion %>
+</p>
+<% end %>
+
+<hr>
+
+<p>
+  <strong>Nombre:</strong> <br>
+  <%= @appointment.title %>
+</p>
+
+<p>
+  <strong>Tipo de Evento:</strong> <br>
+  <%= @appointment.evento %>
+</p>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <p>
+  <strong>Correo:</strong> <br>
+  <%= @appointment.correo %>
+</p>
+  </div>
+  <div class="col-md-6">
+    <p>
+  <strong>Telefono:</strong> <br>
+  <%= @appointment.telefono %>
+</p>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+<p>
+  <strong>Status two:</strong> <br>
+  <%= @appointment.status_two %>
+</p>
+<% end %>
+
+<br><br><br>
+<p class="center">Gracias por ponerte en contacto con nosotros. En seguida nos comunicaremos contigo para confirmar la cita</p> <br>
+<p>- Portal de Bodas y Eventos</p>
+
+
+<br><br><br>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_provider_appointment_path(@provider, @appointment) %> |
+<%= link_to 'Destroy', provider_appointment_path(@provider, @appointment), :method => :delete, :confirm => "Are you sure?" %>
+<% end %>
+
+      </div> 
+
   </body>
 </html>
