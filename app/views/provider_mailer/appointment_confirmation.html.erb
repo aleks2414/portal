@@ -91,23 +91,12 @@
   </div>
 </div>
 
-<% if user_signed_in? %>
-<p>
-  <strong>Status two:</strong> <br>
-  <%= @appointment.status_two %>
-</p>
-<% end %>
 
 <br><br><br>
 <p class="center">Gracias por ponerte en contacto con nosotros. En seguida nos comunicaremos contigo para confirmar la cita</p> <br>
 <p>- Portal de Bodas y Eventos</p>
 
 
-<br><br><br>
-<% if user_signed_in? %>
-<%= link_to 'Edit', edit_provider_appointment_path(@provider, @appointment) %> |
-<%= link_to 'Destroy', provider_appointment_path(@provider, @appointment), :method => :delete, :confirm => "Are you sure?" %>
-<% end %>
 
       </div> 
 
