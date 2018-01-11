@@ -161,11 +161,26 @@ p, a {
   margin-bottom: 1rem;
   background-attachment: fixed;
   background-blend-mode: multiply;
-  background-color: #717171;
+  background-color: #e2e2e2;
 }
 
 .cover_home {
   background-image: image-url("cover.png");
+  height: 85vh;
+}
+
+.cover_home2 {
+  background-image: image-url("cover2.png");
+  height: 85vh;
+}
+
+.cover_home3 {
+  background-image: image-url("cover3.png");
+  height: 85vh;
+}
+
+.cover_home4 {
+  background-image: image-url("cover4.png");
   height: 85vh;
 }
 
@@ -175,7 +190,7 @@ p, a {
 
 .cover_about {
   height: 45vh;
-  background-image: image-url("cover.png");
+  background-image: image-url("cover3.png");
 }
 
 #fondi {

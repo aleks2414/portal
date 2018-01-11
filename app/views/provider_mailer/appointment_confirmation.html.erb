@@ -17,6 +17,37 @@
         <h2>Tu cita está <%=@appointment.status_one %></h2>
         </div>
         <% end %>
+
+
+<hr>
+
+<p>
+  <strong>Nombre:</strong> <br>
+  <%= @appointment.title %>
+</p>
+
+<p>
+  <strong>Tipo de Evento:</strong> <br>
+  <%= @appointment.evento %>
+</p>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <p>
+  <strong>Correo:</strong> <br>
+  <%= @appointment.correo %>
+</p>
+  </div>
+  <div class="col-md-6">
+    <p>
+  <strong>Telefono:</strong> <br>
+  <%= @appointment.telefono %>
+</p>
+  </div>
+</div>
+
+
 <hr>
 <p>
   <strong>Folio de Cita:</strong>
@@ -62,34 +93,6 @@
   <%= @appointment.direccion %>
 </p>
 <% end %>
-
-<hr>
-
-<p>
-  <strong>Nombre:</strong> <br>
-  <%= @appointment.title %>
-</p>
-
-<p>
-  <strong>Tipo de Evento:</strong> <br>
-  <%= @appointment.evento %>
-</p>
-
-
-<div class="row">
-  <div class="col-md-6">
-    <p>
-  <strong>Correo:</strong> <br>
-  <%= @appointment.correo %>
-</p>
-  </div>
-  <div class="col-md-6">
-    <p>
-  <strong>Telefono:</strong> <br>
-  <%= @appointment.telefono %>
-</p>
-  </div>
-</div>
 
 
 <br><br><br>

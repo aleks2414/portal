@@ -130,27 +130,27 @@
   <div class="col-md-6">
   <div class="field">
     <%= f.label :servicio_tienda %><br>
-    <%= f.text_field :servicio_tienda %>
+    <%= f.text_field :servicio_tienda, required:true %>
   </div>
 </div>
 </div>
 
   <div class="field">
     <%= f.label :nombre %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, required:true %>
   </div>
 
 <div class="row">
   <div class="col-md-6">
   <div class="field">
     <%= f.label :correo %><br>
-    <%= f.email_field :correo %>
+    <%= f.email_field :correo, required:true %>
   </div>
 </div>
   <div class="col-md-6">
   <div class="field">
     <%= f.label :telefono %><br>
-    <%= f.text_field :telefono %>
+    <%= f.text_field :telefono, required:true %>
   </div>
 </div>
 </div>
