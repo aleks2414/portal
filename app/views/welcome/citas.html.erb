@@ -48,9 +48,9 @@ header: {
       },
     allDaySlot: false,
     resources: [
-        { id: 'a', title: '<%=@appointments.last.provider.try(:nombre) %>' }
+        { id: 'a', title: '<%=@appointments.last.try(:provider).nombre %>' }
     ],
-    events: '/providers/<%=@appointments.last.provider.try(:slug) %>/appointments.json'
+    events: '/providers/<%=@appointments.last.try(:provider).slug %>/appointments.json'
   });  
 });
 
