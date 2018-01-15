@@ -47,6 +47,7 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
+        ProviderMailer.appointment_confirmation(@appointment).deliver
         format.html { redirect_to provider_appointment_path(@provider, @appointment), notice: 'Appointment was successfully updated.' }
         format.json { render :show, status: :ok, location: @appointment }
       else
