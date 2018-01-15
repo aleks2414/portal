@@ -88,9 +88,9 @@ $(function() { // document ready
     },
     allDaySlot: false,
     resources: [
-    { id: 'a', title: '<%=@appointments.last.provider.nombre %>' }
+    { id: 'a', title: '<%=@appointments.last.provider.try(:nombre) %>' }
     ],
-    events: '/providers/<%=@appointments.last.provider.slug %>/appointments.json'
+    events: '/providers/<%=@appointments.last.provider.try(:slug) %>/appointments.json'
   });  
 });
 
