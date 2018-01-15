@@ -82,6 +82,14 @@ p, a {
   }
 }
 
+@media (max-width: 800px)
+{
+
+#banner {
+background-attachment: unset;
+}
+}
+
 .button {
   transition: background-color .15s linear;
   font-size: 17px;
