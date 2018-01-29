@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221041155) do
+ActiveRecord::Schema.define(version: 20180129201411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 20171221041155) do
   create_table "comments", force: :cascade do |t|
     t.string   "nombre"
     t.text     "mensaje"
-    t.integer  "rating"
+    t.float    "rating",     default: 3.0
     t.integer  "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
@@ -136,12 +136,12 @@ ActiveRecord::Schema.define(version: 20171221041155) do
   create_table "provider_comments", force: :cascade do |t|
     t.string   "nombre"
     t.text     "mensaje"
-    t.integer  "servicio"
-    t.integer  "atencion"
-    t.integer  "calidad"
+    t.float    "servicio",    default: 3.0
+    t.float    "atencion",    default: 3.0
+    t.float    "calidad",     default: 3.0
     t.integer  "provider_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "provider_comments", ["provider_id"], name: "index_provider_comments_on_provider_id", using: :btree
