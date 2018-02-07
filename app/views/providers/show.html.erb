@@ -43,7 +43,8 @@
 
           </div>
           <br>
-          <%= link_to "Más información", root_path, class: "button button_purple" %>
+          <%= link_to "Más información", new_contact_path, class: "button button_purple" %>
+          <br> <br>
         </div>
       </div>
       <!-- col6 -->
@@ -115,7 +116,7 @@
     </div>
   <% end %>
 
-<div id="tienda" class="hidden">
+<div id="tienda" class="">
    <div class="field">
     <%= f.label :fecha_y_hora_de_cita %><br>
     <%= f.datetime_select :start, required:true %>
