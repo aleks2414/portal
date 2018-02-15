@@ -99,6 +99,16 @@ top: 80% !important;
   }
 }
 
+#fondi2 {
+top: 50% !important;
+  h1 {
+    font-size: 17px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
 
 }
 
@@ -197,6 +207,17 @@ top: 80% !important;
   background-attachment: unset;
 }
 
+ #banner2 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 1rem;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+  background-color: #e2e2e2;
+  background-attachment: unset;
+}
+
 .cover_home {
   background-image: image-url("cover.png");
   height: 85vh;
@@ -227,6 +248,16 @@ top: 80% !important;
 }
 
 #fondi {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.99);
+  position: absolute;
+  padding: 1%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#fondi2 {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.99);
   position: absolute;
