@@ -1017,3 +1017,120 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
 .conf {
   background-color: green;
 }
+
+
+/* Side By Side */
+
+#fm-medium-embed{
+  padding: 0;
+  margin-bottom: 70px;
+  text-align: center !important;
+}
+
+.fm-post-wrapper{
+  display: inline-block;
+  width: 300px;
+  padding: 15px;
+  background-color: white;
+      border: solid 1px #e2e8ea;
+      -webkit-box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
+      box-shadow: 6px 6px 2px rgba(46,133,155,0.04);
+  text-align: left;
+  margin: 10px;
+  min-height: 340px;
+}
+
+/*titulo*/
+.fm-post-title{
+  font-size: 17px;
+  margin-top: 20px;
+  text-align: center;
+  height: 25px;
+  white-space: nowrap;
+  padding-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  a {
+  text-align: center;
+  color: $yellow !important;
+  }
+}
+
+/*descrip*/
+.fm-post-sub-title{
+  text-align: center;
+  font-size: 13px;
+  min-height: 130px;
+  line-height: 24px;
+  color: $grey;
+}
+
+.fm-medium-profile{
+  margin-top: 0px;
+  padding: 5px;
+  display: block;
+}
+
+.fm-post-read-more {
+    transition: background-color .15s linear;
+  font-size: 13px;
+  min-width: 200px;
+  padding: 9px 5px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-top: 25px;
+  background-color: transparent;
+  color: white;
+  background-color: #555;
+  height: 40px;
+  font-size: 14px;
+  border-color: #555;
+  text-transform: uppercase;
+    display: block;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 2rem;
+  font-weight: 700;
+  &:hover {
+    color: #555;
+    background-color: white;
+    border: solid 1.2px #555;
+  }
+
+  &:hover > a {
+  color: white;
+  background-color: $yellow;
+  }
+}
+
+.fm-medium-profile a{
+  transition: background-color .15s linear;
+  font-size: 13px;
+  min-width: 200px;
+  padding: 9px 5px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-top: 25px;
+  background-color: transparent;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  background-color: $yellow;
+  height: 40px;
+  font-size: 14px;
+  border-color: $yellow;
+  text-transform: uppercase;
+  &:hover {
+    color: $yellow;
+    background-color: white;
+    border: solid 1.2px $yellow;
+  }
+
+  &:hover > a {
+  color: white;
+  background-color: $yellow;
+  }
+}

@@ -222,9 +222,25 @@
 		</h1>
 		<p>Revisa los tips y consejos que te damos para antes, durante y después de tus eventos</p>
 <br>
-<div class="but">
-<%= link_to "Ver todos los tips", "https://medium.com/portal-de-bodas", class: "button button_purple button_center" %>
-</div>
+
+	<div id="blog">
+<div id="fm-medium-embed"></div>
+
+<script src="//data.feedmirror.com/embed.js"></script>
+<script>
+  var fmSettings = {
+    feedURL: 'https://data.feedmirror.com/-L84g3FDJkuo9cH6Ibr-.json',
+    integration: 'medium-embed',
+    linkOutText: 'Seguir Leyendo',
+    linkToMediumProfileText: 'Subscríbete a nuestro blog',
+    postsCount: 3,
+    element: 'fm-medium-embed'
+  };
+  feedmirror.initialize(fmSettings);
+</script>
+          
+	</div>
+
 	</div>
 </div>
 
