@@ -194,7 +194,9 @@
 		<div id="eventos_reales">
 			<%= link_to event do %>
 			<div class="imagen">
-			<%= image_tag event.event_attachments[0].image.url %>
+              <% if event.event_attachments[0].image %>
+              <%= image_tag event.event_attachments[0].image.url %>
+              <% end %>
 			</div>
 			<h3><%=event.categoria %></h3>
 			<h2><%=event.nombre %></h2>
