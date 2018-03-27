@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, required:true %>
   </div>
 
   <div class="field">
     <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
+    <%= f.text_field :tags, required:true %>
   </div>
 
   <div class="field">
@@ -35,11 +35,11 @@
   </div>
   <div class="field">
     <%= f.label :fecha %><br>
-    <%= f.date_field :fecha %>
+    <%= f.date_field :fecha, required:true %>
   </div>
   <div class="field">
     <%= f.label :lugar %><br>
-    <%= f.text_field :lugar %>
+    <%= f.text_field :lugar, required:true %>
   </div>
 
   <div class="row">
