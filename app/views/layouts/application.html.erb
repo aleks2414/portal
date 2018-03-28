@@ -87,7 +87,11 @@
        <div class="col-md-2 col-xs-6">
         <div id="footer_left">
            <h4>__ </h4>
-
+        <% @providers3.each do |provider| %>
+          <%= link_to provider do %>
+          <p><%= provider.nombre %></p>
+          <% end %>
+        <% end %>
         </div>
        </div>
 

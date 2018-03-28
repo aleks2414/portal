@@ -10,7 +10,7 @@ before_filter :set_footer
 def set_footer
     @providers1 = Provider.all.limit(4)
     @providers2 = Provider.all.limit(4).offset(4)
-    @providers3 = Provider.all.limit(4).offset(8)
+    @providers3 = Provider.all.offset(8)
 end
 
   def prepare_meta_tags(options={})
