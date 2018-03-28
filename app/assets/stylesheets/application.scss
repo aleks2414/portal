@@ -414,10 +414,6 @@ p {
     font-style: normal;
     font-weight: 300;
     }
-
-    img {
-      width: 100% !important;
-    }
   }
 
   #info_evento {
@@ -1132,5 +1128,11 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
   &:hover > a {
   color: white;
   background-color: $yellow;
+  }
+}
+
+.portadi {
+  img {
+    width: 100%;
   }
 }

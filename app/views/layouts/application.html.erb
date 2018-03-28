@@ -65,51 +65,29 @@
        <div class="col-md-2 col-xs-6">
         <div id="footer_left">
            <h4>Proveedores</h4>
-           <%= link_to "http://www.elportaldebodas.com/providers/brides-dreams" do %>
-           <p>Brides & Dreams</p>
-           <% end %>
-           <%= link_to "http://www.elportaldebodas.com/providers/detalles-magicos" do %>
-           <p>Detalles Mágicos</p>
-           <% end %>
-           <%= link_to "http://www.elportaldebodas.com/providers/vacama-s-a" do %>
-           <p>Vacama S.A.</p>
-           <% end %>
+        <% @providers1.each do |provider| %>
+          <%= link_to provider do %>
+          <p><%= provider.nombre %></p>
+          <% end %>
+        <% end %>
         </div>
        </div>
 
        <div class="col-md-2 col-xs-6">
         <div id="footer_left">
            <h4>__ </h4>
-           <%= link_to "http://www.elportaldebodas.com/providers/tux-more" do %>
-           <p>Tux & More</p>
-           <% end %>
-            <%= link_to "http://www.elportaldebodas.com/providers/son-latino" do %>
-           <p>Son Latino</p>
-           <% end %>
-           <%= link_to "http://www.elportaldebodas.com/providers/joymas" do %>
-           <p>Joymas</p>
-           <% end %>
-           <%= link_to "http://www.elportaldebodas.com/providers/gabriella-padilla-roderico-mendez" do %>
-           <p>Gabriella Padilla</p>
-           <% end %>
+        <% @providers2.each do |provider| %>
+          <%= link_to provider do %>
+          <p><%= provider.nombre %></p>
+          <% end %>
+        <% end %>
         </div>
        </div>
 
        <div class="col-md-2 col-xs-6">
         <div id="footer_left">
            <h4>__ </h4>
-           <%= link_to "http://www.elportaldebodas.com/providers/nissi" do %>
-           <p>Nissi</p>
-           <% end %>
-           <%= link_to "http://www.elportaldebodas.com/providers/pasteles-d-claudia" do %>
-           <p>Pasteles D' Claudia</p>
-           <% end %>
-           <%= link_to "http://www.elportaldebodas.com/providers/latingraf" do %>
-           <p>Latin Graf</p>
-           <% end %>
-           <%= link_to "http://www.elportaldebodas.com/providers/pixen-foto" do %>
-           <p>Pixen Foto</p>
-           <% end %>
+
         </div>
        </div>
 
