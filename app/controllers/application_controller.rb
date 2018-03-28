@@ -8,6 +8,7 @@ before_action :prepare_meta_tags, if: "request.get?"
 before_filter :set_footer
 
 def set_footer
+    @providers0 = Provider.all
     @providers1 = Provider.all.limit(4)
     @providers2 = Provider.all.limit(4).offset(4)
     @providers3 = Provider.all.offset(8)

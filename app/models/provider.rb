@@ -3,6 +3,7 @@ class Provider < ActiveRecord::Base
   has_many :provider_comments, dependent: :destroy
   has_many :appointments, dependent: :destroy
   mount_uploader :foto, FotoUploader
+  mount_uploader :icon, IconUploader
 
  has_many :provider_attachments, dependent: :destroy
  accepts_nested_attributes_for :provider_attachments

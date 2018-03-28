@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   before_action :authenticate_user!, only: [:citas, :por_confirmar]
   def index
-  	@events = Event.all.limit(3)
+  	@events = Event.all.limit(3).order('id DESC')
   end
 
   def prov
