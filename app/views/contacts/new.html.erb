@@ -14,82 +14,17 @@
 							<%= form_for @contact do |f| %>
 
 <div class="row">
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_01" class="center todos">
-			<%=image_tag "portal_icon-01.svg"%>
-			<p>Brides & Dreams</p>
-		</div>
-	</div>
 
+<% @providers0.each_with_index do |provider, i| %>
 	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_02" class="center todos">
-			<%=image_tag "portal_icon-02.svg"%>
-			<p>Tux & More</p>
+		<div id="provi_<%=i%>" class="center todos">
+			<%= image_tag provider.icon.url %>
+			<p><%= provider.nombre %></p>
 		</div>
 	</div>
+<% end %>
 
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_03" class="center todos">
-			<%=image_tag "portal_icon-03.svg"%>
-			<p>Pasteles D' Claudia</p>
-		</div>
-	</div>
-
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_04" class="center todos">
-			<%=image_tag "portal_icon-04.svg"%>
-			<p>LatinGraf</p>
-		</div>
-	</div>
-
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_05" class="center todos">
-			<%=image_tag "portal_icon-05.svg"%>
-			<p>Detalles Mágicos</p>
-		</div>
-	</div>
-
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_06" class="center todos">
-			<%=image_tag "portal_icon-06.svg"%>
-			<p>Son Latino</p>
-		</div>
-	</div>
-
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_07" class="center todos">
-			<%=image_tag "portal_icon-07.svg"%>
-			<p>Nissi</p>
-		</div>
-	</div>
-
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_08" class="center todos">
-			<%=image_tag "portal_icon-08.svg"%>
-			<p>Gabriella Padilla</p>
-		</div>
-	</div>
-
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_09" class="center todos">
-			<%=image_tag "portal_icon-09.svg"%>
-			<p>Pixen Foto</p>
-		</div>
-	</div>
-
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_10" class="center todos">
-			<%=image_tag "portal_icon-10.svg"%>
-			<p>Vacama S.A.</p>
-		</div>
-	</div>
-
-	<div class="col-md-2 col-xs-6 col-sm-4">
-		<div id="provi_11" class="center todos">
-			<%=image_tag "portal_icon-11.svg"%>
-			<p>Joymas</p>
-		</div>
-	</div>
+	
 
 </div>
 							<div class="field">
@@ -188,71 +123,14 @@
 <div id="googleMap"></div>
 
 <script>
-	$("#provi_01").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Brides & Dreams";
-});
 
-	$("#provi_02").click(function(){
+<% @providers0.each_with_index do |provider, i| %>
+	$("#provi_<%=i%>").click(function(){
 		$(".todos").removeClass('active2');
     $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Tux & More";
+    document.getElementById('contact_provider').value = "<%= provider.nombre %>";
 });
-
-	$("#provi_03").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Pasteles D' Claudia";
-});
-
-	$("#provi_04").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Latingraf";
-});
-
-	$("#provi_05").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Detalles Mágicos";
-});
-
-	$("#provi_06").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Son Latino";
-});
-
-	$("#provi_07").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Nissi";
-});
-
-	$("#provi_08").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Gabriella Padilla";
-});
-
-	$("#provi_09").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Pixen Foto";
-});
-
-	$("#provi_10").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Pelo Pelo";
-});
-
-	$("#provi_11").click(function(){
-		$(".todos").removeClass('active2');
-    $(this).addClass('active2');
-    document.getElementById('contact_provider').value = "Joymas";
-});
+<% end %>
 </script>
 
 <script>
