@@ -1,36 +1,35 @@
-  <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-		
-<div id="max">
-<div class="row">
-	<div class="col-md-6 col-sm-6">
-			<% @event_attachments.each_with_index do |event_attachment, i| %>
-    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="<%= event_attachment.image.url %>" itemprop="contentUrl" data-size="1024x1024">
-      	<div class="imagen">
-          <img src="<%= event_attachment.image.url %>" itemprop="thumbnail" alt="Image description" />
-         </div>
-      </a>                                          
-    </figure>
-    <% end %>
-  </div>	
-	</div>
-</div>
-</div>
+<div class="is-container">
+  
+  <section id="main" role="main" class="layout-main">
+    
+      <div class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
+        
+        <% @event_attachments.each_with_index do |event_attachment, i| %>
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="gallery-item">
+          <a href="<%= event_attachment.image.max.url %>" itemprop="contentUrl" data-size="350x300">
+          <img srcset="<%= event_attachment.image.max.url %>" src="<%= event_attachment.image.max.url %>" class="gallery-image" />
+          </a>
+        </figure>
+        <% end %>
 
-
+     </div><!-- end /gallery -->
+  </section><!-- end /layout-main -->
+  
+</div><!-- end /is-container -->
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
-         It's a separate element, as animating opacity is faster than rgba(). -->
+         It's a separate element as animating opacity is faster than rgba(). -->
     <div class="pswp__bg"></div>
 
     <!-- Slides wrapper with overflow:hidden. -->
     <div class="pswp__scroll-wrap">
 
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
         <div class="pswp__container">
             <div class="pswp__item"></div>
             <div class="pswp__item"></div>
@@ -54,7 +53,7 @@
 
                 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->
                 <div class="pswp__preloader">
                     <div class="pswp__preloader__icn">
@@ -79,14 +78,18 @@
                 <div class="pswp__caption__center"></div>
             </div>
 
-          </div>
-
         </div>
+
+    </div>
 
 </div>
 
+
+
+
+
 <script>
-	var initPhotoSwipeFromDOM = function(gallerySelector) {
+var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements 
     // (children of gallerySelector)
@@ -268,6 +271,8 @@
         if(disableAnimation) {
             options.showAnimationDuration = 0;
         }
+      
+        options.showHideOpacity = true;
 
         // Pass data to PhotoSwipe and initialize it
         gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
@@ -290,5 +295,5 @@
 };
 
 // execute above function
-initPhotoSwipeFromDOM('.my-gallery');
+initPhotoSwipeFromDOM('.gallery');
 </script>

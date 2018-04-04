@@ -1138,15 +1138,34 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
   }
 }
 
-#max {
-.imagen {
-  height:300px;
-  line-height:300px;
-  overflow:hidden;
-  text-align:center;
-  width:100%;
-  img {
-    margin:-100%
-  }
-  }
+#cau {
+* {
+  box-sizing: border-box;
+}
+
+figure {
+  margin: 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1em;
+  grid-auto-flow: dense;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  touch-action: none;
+}
+
+.span-row-2 {
+  grid-row: span 2;
+}
+
 }
