@@ -8,11 +8,7 @@
         </div>
         <p><%= @event.content.html_safe %></p>
         
-          <div class="owl-carousel">
-            <% @event_attachments.each do |event_attachment| %>
-            <div><%= image_tag event_attachment.image.max.url %></div>
-            <% end %>
-          </div>
+<%= render 'carou' %>
 
       </div>
     </div>

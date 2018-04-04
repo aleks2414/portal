@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require owl.carousel
+//= require photoswipe
 //= require moment
 //= require fullcalendar
 //= require underscore

@@ -13,6 +13,7 @@
  *= require fullcalendar
  *= require owl.carousel
  *= require owl.theme
+ *= require photoswipe
  *= require_tree .
  *= require_self
  *= require jquery-ui
@@ -1134,5 +1135,18 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
 .portadi {
   img {
     width: 100%;
+  }
+}
+
+#max {
+.imagen {
+  height:300px;
+  line-height:300px;
+  overflow:hidden;
+  text-align:center;
+  width:100%;
+  img {
+    margin:-100%
+  }
   }
 }
