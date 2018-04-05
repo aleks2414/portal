@@ -1,6 +1,6 @@
 class ProviderMailer < ApplicationMailer
 
-  default :from => 'alex@idearialab.com'
+  default :from => 'portalredes2018@gmail.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def appointment_confirmation(appointment)
