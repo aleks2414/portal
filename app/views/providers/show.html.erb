@@ -1,79 +1,72 @@
 <div id= "banner" class="cover_brides" style="background-image: url(<%= @provider.provider_attachments[0].image2 %>);">
   <div id="fondi2">
     <div id="backi">
-  <h1 class=""><%=@provider.nombre%></h1> <br>
+      <h1 class=""><%=@provider.nombre%></h1> <br>
     </div>
   </div>
 </div>
 
 
-  <div class="container">
-    <div id="magic">
-     <div class="row">
-      <!-- col6 -->
-      <div class="col-md-6">
-        <div id="izq1">
-          
-          <div class="row">
+<div class="container">
+  <div id="magic">
+   <div class="row">
+    <!-- col6 -->
+    <div class="col-md-6">
+      <div id="izq1">
+        
+        <div class="row">
           <div class="login">
-          <%= image_tag @provider.foto %>
+            <%= image_tag @provider.foto %>
           </div>
-          </div>
+        </div>
 
-          <h2><%=@provider.nombre %></h2>
-          <p><%=@provider.productos%></p>
-          <h6><span class="fa fa-calendar"></span> Citas: <%=@provider.anticipacion%></h6>
-          <h6><span class="fa fa-phone"></span><a href="<%=@provider.telefono %>"> Teléfono: <%=@provider.telefono %></a></h6>
-          <h6><span class="fa fa-envelope"></span><a href="mailto:<%=@provider.correo%>?Subject=Solicitud%20de%20información"> <%=@provider.correo%></a></h6>
+        <h2><%=@provider.nombre %></h2>
+        <p><%=@provider.productos%></p>
+        <h6><span class="fa fa-calendar"></span> Citas: <%=@provider.anticipacion%></h6>
+        <h6><span class="fa fa-phone"></span><a href="<%=@provider.telefono %>"> Teléfono: <%=@provider.telefono %></a></h6>
+        <h6><span class="fa fa-envelope"></span><a href="mailto:<%=@provider.correo%>?Subject=Solicitud%20de%20información"> <%=@provider.correo%></a></h6>
+        
+        <div class="row">
           
-          <div class="row">
-            
           <div class="col-sm-4">
-          <p>Servicio:</p>
-          <h6 class="star-rating" data-score=<%=@provider.average_servicio%>> </h6>
+            <p>Servicio:</p>
+            <h6 class="star-rating" data-score=<%=@provider.average_servicio%>> </h6>
           </div>
           <div class="col-sm-4">
-          <p>Atención:</p>
-          <h6 class="star-rating" data-score=<%=@provider.average_atencion%>> </h6>
+            <p>Atención:</p>
+            <h6 class="star-rating" data-score=<%=@provider.average_atencion%>> </h6>
           </div>
           <div class="col-sm-4">
-          <p>Calidad:</p>
-          <h6 class="star-rating" data-score=<%=@provider.average_calidad%>> </h6>
+            <p>Calidad:</p>
+            <h6 class="star-rating" data-score=<%=@provider.average_calidad%>> </h6>
           </div>
 
-          </div>
-          <br>
-          <%= link_to "Más información", new_contact_path, class: "button button_purple" %>
-          <br> <br>
         </div>
-      </div>
-      <!-- col6 -->
-      <div class="col-md-6">
-        <div id="dre">
-
-          <div class="owl-carousel">
-            <% @provider_attachments.each do |provider_attachment| %>
-            <div><%= image_tag provider_attachment.image2.url %></div>
-            <% end %>
-          </div>
-        </div>
-          </div>
-        </div>
+        <br>
+        <%= link_to "Más información", new_contact_path, class: "button button_purple" %>
+        <br> <br>
       </div>
     </div>
+    <!-- col6 -->
+    <div class="col-md-6">
+      <%= render 'citas' %>
+    </div>
   </div>
+</div>
+</div>
+</div>
 
-    <div class="container">
-    <div id="magic">
+<div class="container">
+  <div id="magic">
     <div class="row">     
       <div class="col-md-6">
-                <div id="izq2">
+        <div id="izq2">
           <h3>Información General:</h3>
           <p><%= @provider.info_general.html_safe %></p>
 
           <h3>Servicios Ofrecidos:</h3>
           <p><%= @provider.servicios.html_safe %></p>
-            
+          
           <% if @provider.domicilio.present? %>
           <h3>Detalles de Servicio a Domicilio:</h3>
           <p><%= @provider.domicilio.html_safe %></p>
@@ -81,110 +74,35 @@
         </div>
       </div>
       <div class="col-md-6">
-      <!-- form -->
-<div id="formario">
-  <h3 class="center">Haz tu cita</h3>
-  <p class="center">Estaremos gustosos de recibirte</p>
-  <hr>
-  <div class="row center">
-<div class="col-xs-6">
-<div class="buton_tienda">
-  <%= image_tag "portal_icon-12.svg" %>
-  <p>En Tienda</p> 
-</div>
-</div>
+        <!-- form -->
+        <div id="dre">
 
-<div class="col-xs-6">
-<div class="buton_domicilio hidden">
-  <%= image_tag "portal_icon-13.svg" %>
-  <p>A domicilio</p> 
-</div>
-</div>
+          <div id="cau">
+            <%= render 'carou' %>
+          </div>
 
-</div>
-<br><br>
-<%= form_for [@provider, @appointment] do |f| %>
-  <% if @appointment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
-
-      <ul>
-      <% @appointment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<div id="tienda" class="">
-   <div class="field">
-    <%= f.label :fecha_y_hora_de_cita %><br>
-    <%= f.datetime_select :start, required:true %>
-  </div>
-<div class="row">
-  <div class="col-md-6">
-  <div class="field">
-    <%= f.label :evento %><br>
-    <%= f.select :evento, [["Boda"], ["Graduaciones"], ["Xv años"], ["Comuniones"], ["Otros"]], {:prompt => '¿Para qué evento es la cita?'} %>
-  </div>
-</div>
-  <div class="col-md-6">
-  <div class="field">
-    <%= f.label :servicio_tienda %><br>
-    <%= f.text_field :servicio_tienda, required:true %>
-  </div>
-</div>
-</div>
-
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :title, required:true %>
-  </div>
-
-<div class="row">
-  <div class="col-md-6">
-  <div class="field">
-    <%= f.label :correo %><br>
-    <%= f.email_field :correo, required:true %>
-  </div>
-</div>
-  <div class="col-md-6">
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.text_field :telefono, required:true %>
-  </div>
-</div>
-</div>
-  <div class="actions button_center">
-    <%= f.submit "Crear Cita", class: "button button_purple button_center" %> <br><br>
-  </div> 
-</div> 
-
-
-
-<% end %>
-</div>
+        </div>
 
       </div>  
-      </div>
     </div>
-    </div>
+  </div>
+</div>
 
 
 <div class="container">
   <div id="magici">
-<div id="comments">
-  <h3 class="center">Déjanos tus comentarios</h3>
-  <hr>
-  <%= form_for [@provider, @provider_comment] do |f| %>
+    <div id="comments">
+      <h3 class="center">Déjanos tus comentarios</h3>
+      <hr>
+      <%= form_for [@provider, @provider_comment] do |f| %>
 
       <div class="row">
-      <div class="col-sm-6">
-      <div class="field">
-        <%= f.label :Nombre %><br>
-        <%= f.text_field :nombre, required:true  %>
-      </div>
-      </div>
+        <div class="col-sm-6">
+          <div class="field">
+            <%= f.label :Nombre %><br>
+            <%= f.text_field :nombre, required:true  %>
+          </div>
+        </div>
       </div>
 
       
@@ -194,77 +112,77 @@
       </div>
       
       <div class="row"> 
-      <div class="col-xs-4">
-      <div class="field">
-        <%= f.label :servicio %><br>
-        <div id="star-rating1"></div>
-      </div>
+        <div class="col-xs-4">
+          <div class="field">
+            <%= f.label :servicio %><br>
+            <div id="star-rating1"></div>
+          </div>
+        </div>
+
+        <div class="col-xs-4">
+          <div class="field">
+            <%= f.label :atencion %><br>
+            <div id="star-rating2"></div>
+          </div>
+        </div>
+
+        <div class="col-xs-4">
+          <div class="field">
+            <%= f.label :calidad %><br>
+            <div id="star-rating3"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="col-xs-4">
-      <div class="field">
-        <%= f.label :atencion %><br>
-        <div id="star-rating2"></div>
-      </div>
-      </div>
-
-      <div class="col-xs-4">
-      <div class="field">
-        <%= f.label :calidad %><br>
-        <div id="star-rating3"></div>
-      </div>
-      </div>
-      </div>
-
-<br><br>
+      <br><br>
       <div class="actions">
         <%= f.submit "Añadir Comentario", class: "button button_yellow" %> <br><br>
       </div>
 
-  <% end %>
+      <% end %>
 
-  </div>
+    </div>
   </div>
 </div>
 
 <div class="container">
   <div id="magici">
-  <% @provider_comments.each_with_index do |provider_comment, i| %>
-  <div class="col-sm-6">
-  <div id="cuadro">
-  <h3><%= provider_comment.nombre %></h3>
-  <p class="down"><%= provider_comment.try(:mensaje).truncate(250) %></p>
-  
-  <div class="row">
-  
-  <div class="col-xs-4">
-  <p>Servicio:</p>
-  <h6 class="star-rating" data-score=<%=provider_comment.servicio%>> </h6>
-</div>
-  
-  <div class="col-xs-4">
-  <p>Atención:</p>
-  <h6 class="star-rating" data-score=<%=provider_comment.atencion%>> </h6>
-</div>
-  
-  <div class="col-xs-4">
-  <p>Calidad:</p>
-  <h6 class="star-rating" data-score=<%=provider_comment.calidad%>> </h6>
+    <% @provider_comments.each_with_index do |provider_comment, i| %>
+    <div class="col-sm-6">
+      <div id="cuadro">
+        <h3><%= provider_comment.nombre %></h3>
+        <p class="down"><%= provider_comment.try(:mensaje).truncate(250) %></p>
+        
+        <div class="row">
+          
+          <div class="col-xs-4">
+            <p>Servicio:</p>
+            <h6 class="star-rating" data-score=<%=provider_comment.servicio%>> </h6>
+          </div>
+          
+          <div class="col-xs-4">
+            <p>Atención:</p>
+            <h6 class="star-rating" data-score=<%=provider_comment.atencion%>> </h6>
+          </div>
+          
+          <div class="col-xs-4">
+            <p>Calidad:</p>
+            <h6 class="star-rating" data-score=<%=provider_comment.calidad%>> </h6>
+          </div>
+        </div>
+        <% if current_user %>
+        <br>
+        <%= link_to "Eliminar Comentario", provider_provider_comment_path(@provider, provider_comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
   </div>
-  </div>
-  <% if current_user %>
-  <br>
-  <%= link_to "Eliminar Comentario", provider_provider_comment_path(@provider, provider_comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-  </div>
-  </div>
-  <% end %>
-</div>
 </div>
 
 <div class="container">
   <div class="center">
-  <%= will_paginate @provider_comments %>
+    <%= will_paginate @provider_comments %>
   </div>
 </div>
 
@@ -276,41 +194,41 @@
 
 <% if current_user %>
 <div class="container">
-<%= link_to 'Editar Proovedor', edit_provider_path(@provider) %>
+  <%= link_to 'Editar Proovedor', edit_provider_path(@provider) %>
 </div>
 <% end %>
 
 <script>
-$(".buton_tienda").click(function(){
+  $(".buton_tienda").click(function(){
     $("#domicilio").addClass('hidden');
     $(this).addClass('active2');
     $("#tienda").removeClass('hidden');
     $(".buton_domicilio").removeClass('active2');
-});
+  });
 
-$(".buton_domicilio").click(function(){
+  $(".buton_domicilio").click(function(){
     $("#tienda").addClass('hidden');
     $(this).addClass('active2');
     $("#domicilio").removeClass('hidden');
     $(".buton_tienda").removeClass('active2');
-});
+  });
 </script>
 
 
 <script>
   $(".owl-carousel").owlCarousel(
-    {
+  {
     items:1,
     margin:10
-    });
+  });
 </script>
 
 <script>
-    $('.star-rating').raty({
-      path: '/images/raty',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
+  $('.star-rating').raty({
+    path: '/images/raty',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
     }
   });
 </script>
@@ -329,7 +247,7 @@ $(".buton_domicilio").click(function(){
     scoreName: 'provider_comment[atencion]'
   });
 
-    $('#star-rating3').raty({
+  $('#star-rating3').raty({
     path: '/images/raty',
     score: 3,
     scoreName: 'provider_comment[calidad]'

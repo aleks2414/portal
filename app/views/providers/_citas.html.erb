@@ -1,0 +1,84 @@
+<div id="formario">
+  <h3 class="center">Haz tu cita</h3>
+  <p class="center">Estaremos gustosos de recibirte</p>
+  <hr>
+<!--   <div class="row center">
+<div class="col-xs-6">
+<div class="buton_tienda">
+  <%#= image_tag "portal_icon-12.svg" %>
+  <p>En Tienda</p> 
+</div>
+</div>
+
+<div class="col-xs-6">
+<div class="buton_domicilio hidden">
+  <%#= image_tag "portal_icon-13.svg" %>
+  <p>A domicilio</p> 
+</div>
+</div>
+
+</div>
+ -->
+
+ <br><br>
+<%= form_for [@provider, @appointment] do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="tienda" class="">
+   <div class="field">
+    <%= f.label :fecha_y_hora_de_cita %><br>
+    <%= f.datetime_select :start, required:true %>
+  </div>
+<div class="row">
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :evento %><br>
+    <%= f.select :evento, [["Boda"], ["Graduaciones"], ["Xv años"], ["Comuniones"], ["Otros"]], {:prompt => '¿Para qué evento es la cita?'} %>
+  </div>
+</div>
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :servicio_tienda %><br>
+    <%= f.text_field :servicio_tienda, required:true %>
+  </div>
+</div>
+</div>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :title, required:true %>
+  </div>
+
+<div class="row">
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.email_field :correo, required:true %>
+  </div>
+</div>
+  <div class="col-md-6">
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono, required:true %>
+  </div>
+</div>
+</div>
+  <div class="actions button_center">
+    <%= f.submit "Crear Cita", class: "button button_purple button_center" %> <br><br>
+  </div> 
+</div> 
+
+
+
+<% end %>
+</div>

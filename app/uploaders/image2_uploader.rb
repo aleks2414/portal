@@ -28,6 +28,10 @@ class Image2Uploader < CarrierWave::Uploader::Base
     process resize_to_fill: [200,200]
   end
 
+  version :max do
+    process resize_to_fill: [600, 500]
+  end
+
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
