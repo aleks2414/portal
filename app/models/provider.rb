@@ -2,6 +2,7 @@ class Provider < ActiveRecord::Base
   belongs_to :user
   has_many :provider_comments, dependent: :destroy
   has_many :appointments, dependent: :destroy
+  has_and_belongs_to_many :events
   mount_uploader :icon, IconUploader
   mount_uploader :foto, FotoUploader
   

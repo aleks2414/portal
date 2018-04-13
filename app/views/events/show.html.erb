@@ -123,6 +123,13 @@
         <% end %>
       <% end %>
 
+    <% @providers.each_with_index do |provider, i| %>
+      <%= link_to provider do %>
+        <%= image_tag provider.icon.url %>
+        <h3><%= provider.nombre %></h3>
+      <% end %>
+    <% end %>
+
       </div>
     </div>
   </div>
