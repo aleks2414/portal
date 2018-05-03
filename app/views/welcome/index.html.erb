@@ -1,10 +1,7 @@
-<div id= "banner" class="cover_home2">
-	<div id="fondi">
-		<div id="backi">
-	<h1 class="">Contamos con todo lo necesario para organizar tu <span class="curly">evento</span></h1> <br>
-	<p class="">Encuentra a los mejores proveedores para eventos en Guatemala</p>
-		</div>
-	</div>
+<div class="owl-carousel">
+
+<%= render 'banner' %>
+
 </div>
 
 
@@ -273,4 +270,32 @@ function openCity(evt, cityName) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:1,
+    loop:true,
+    margin:10,
+    autoPlay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:1,
+            nav:true
+        },
+        1000:{
+            items:1,
+            nav:true,
+            loop:true
+        }
+    }
+});
 </script>
