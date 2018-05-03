@@ -7,7 +7,7 @@
         <% @event_attachments.each_with_index do |event_attachment, i| %>
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="gallery-item">
           <a href="<%= event_attachment.image.rebe.url %>" itemprop="contentUrl" data-size="700x466">
-          <img srcset="<%= event_attachment.image.max.url %>" src="<%= event_attachment.image.max.url %>" class="gallery-image" />
+          <img srcset="<%= event_attachment.image.rebe.url %>" src="<%= event_attachment.image.max.url %>" class="gallery-image" />
           </a>
         </figure>
         <% end %>
