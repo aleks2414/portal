@@ -6,7 +6,7 @@
         
         <% @provider_attachments.each_with_index do |provider_attachments, i| %>
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="gallery-item">
-          <a href="<%= provider_attachments.image2.max.url %>" itemprop="contentUrl" data-size="700x600">
+          <a href="<%= provider_attachments.image2.rebe.url %>" itemprop="contentUrl" data-size="700x466">
           <img srcset="<%= provider_attachments.image2.max.url %>" src="<%= provider_attachments.image2.max.url %>" class="gallery-image" />
           </a>
         </figure>
