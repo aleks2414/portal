@@ -6,7 +6,6 @@ class ProviderMailer < ApplicationMailer
   def appointment_confirmation(appointment)
     @appointment = appointment
     mail( 
-    :from => @appointment.title,
     :to => @appointment.correo,
     :subject => 'Gracias por hacer cita con Portal de Bodas y Eventos',
     :cc => 'rebecaayala1994@gmail.com' )
