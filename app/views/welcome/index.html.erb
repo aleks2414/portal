@@ -1,9 +1,19 @@
 <div class="owl-carousel">
-
-<%= render 'banner' %>
-
+<div id= "banner" class="cover_home2"><span></span></div>
+<div id= "banner" class="cover_home5"><span></span></div>
+<div id= "banner" class="cover_home6"><span></span></div>
+<div id= "banner" class="cover_home7"><span></span></div>
+<div id= "banner" class="cover_home8"><span></span></div>
+<div id= "banner" class="cover_home9"><span></span></div>
+<div id= "banner" class="cover_home10"><span></span></div>
 </div>
 
+	<div id="fondi">
+		<div id="backi">
+	<h1 class="">Contamos con todo lo necesario para organizar tu <span class="curly">evento</span></h1> <br>
+	<p class="">Encuentra a los mejores proveedores para eventos en Guatemala</p>
+		</div>
+	</div>
 
 <div id="option" class="grey">
 	<div class="container">
@@ -246,11 +256,31 @@
 
 
 <script>
-	$(".owl-carousel").owlCarousel(
-		{
-		items:1,
-    margin:10
-		});
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:1,
+    loop:true,
+    margin:10,
+    autoPlay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:2,
+            nav:true
+        },
+        1000:{
+            items:1,
+            nav:true,
+            loop:true
+        }
+    }
+});
 </script>
 
 <script>
@@ -270,32 +300,4 @@ function openCity(evt, cityName) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-</script>
-
-<script>
-var owl = $('.owl-carousel');
-owl.owlCarousel({
-    items:1,
-    loop:true,
-    margin:10,
-    autoPlay:true,
-    autoplayTimeout:1000,
-    autoplayHoverPause:true,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1,
-            nav:true
-        },
-        600:{
-            items:1,
-            nav:true
-        },
-        1000:{
-            items:1,
-            nav:true,
-            loop:true
-        }
-    }
-});
 </script>
