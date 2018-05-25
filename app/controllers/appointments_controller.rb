@@ -79,6 +79,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:start, :end, :provider_id, :servicio_tienda, :servicio_domicilio, :title, :evento, :correo, :telefono, :direccion, :status_one, :status_two)
+      params.require(:appointment).permit(:start, :end, :provider_id, :servicio_tienda, :servicio_domicilio, :title, :evento, :correo, :telefono, :direccion, :status_one, :status_two, :accept)
     end
 end
