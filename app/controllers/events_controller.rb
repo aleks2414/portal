@@ -79,18 +79,16 @@ end
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-      if @event.update(event_params)
-
-      if params[:images] 
-        params[:images].each do |image|
-          @event.event_attachments.create(image: image)
-        end
-      end
-
-      redirect_to edit_event_path(@event), notice: "Updated..."
-    else
-      render :edit
-    end
+   respond_to do |format|
+     if @event.update(event_params)
+       params[:event_attachments]['image'].each do |a|
+          @event_attachment = @event.event_attachments.create!(:image => a,     :event_id => @event.id)
+       end
+       format.html { redirect_to edit_event_path(@event), notice: 'event was successfully     edited.' }
+     else
+       format.html { render action: 'new' }
+     end
+   end
   end
 
   # DELETE /events/1
