@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413221229) do
+ActiveRecord::Schema.define(version: 20180610175048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 20180413221229) do
     t.string   "servicio_list"
     t.string   "domicilio_list"
     t.string   "icon"
+    t.string   "cover_photo"
   end
 
   add_index "providers", ["slug"], name: "index_providers_on_slug", unique: true, using: :btree

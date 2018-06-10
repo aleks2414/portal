@@ -5,6 +5,7 @@ class Provider < ActiveRecord::Base
   has_and_belongs_to_many :events
   mount_uploader :icon, IconUploader
   mount_uploader :foto, FotoUploader
+  mount_uploader :cover_photo, CoverPhotoUploader
   
 
  has_many :provider_attachments, dependent: :destroy
