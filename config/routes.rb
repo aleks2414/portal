@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   
+  resources :promos
   resources :provider_attachments
   resources :event_attachments
   resources :contacts, only: [:new, :create]

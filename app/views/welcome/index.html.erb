@@ -181,13 +181,25 @@
 
 
 
-
-
-
-
-
-
 <div id="option">
+	<div class="container">
+		<h1>Promociones del mes</h1>
+		<p>Disfruta de las mejores promociones de temporada
+		</p> <br>
+
+<%= render 'cau_cau' %>
+
+<div class="but">
+<%= link_to "Ver todas las promociones", promos_path, class: "button button_purple button_center" %>
+</div>
+	</div>
+</div>
+
+
+
+
+
+<div id="option" class="grey">
 	<div class="container">
 		<h1>
 			<span class="curly">Eventos</span> tan reales como el tuyo
@@ -224,7 +236,7 @@
 
 
 
-<div id="option" class="grey">
+<div id="option" >
 	<div class="container">
 		<h1>
 			Organiza tu <span class="curly">evento</span> con la ayuda de nuestra comunidad

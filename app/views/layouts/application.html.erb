@@ -41,6 +41,7 @@
                     <ul>
                         <li><a href="<%= providers_path %>">Proveedores</a></li>
                         <li><a href="<%=events_path%>">Eventos Reales</a></li>
+                        <li><a href="<%=promos_path%>">Promociones</a></li>
                         <li><a href="https://medium.com/portal-de-bodas">Inspírate</a></li>
                         <li><a href="<%=nosotros_path%>">Nosotros</a></li>
                         <li><a href="<%=new_contact_path %>">Contacto</a></li>
@@ -100,6 +101,9 @@
            <h4>Portal de Bodas</h4>
            <%= link_to events_path do %>
            <p>Eventos Reales</p>
+           <% end %>
+           <%= link_to promos_path do %>
+           <p>Promociones</p>
            <% end %>
            <%= link_to "https://medium.com/portal-de-bodas" do %>
            <p>Blog</p>

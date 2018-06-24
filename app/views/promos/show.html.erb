@@ -1,0 +1,16 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @promo.nombre %>
+</p>
+
+<p>
+  <strong>Imagen promo:</strong>
+  <%= @promo.imagen_promo %>
+</p>
+
+<p>
+  <strong>Disponible:</strong>
+  <%= @promo.disponible %>
+</p>
+
+<%= link_to 'Editar', edit_promo_path(@promo) %>
