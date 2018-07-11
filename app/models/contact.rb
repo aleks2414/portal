@@ -9,6 +9,8 @@ class Contact < MailForm::Base
 	attribute :rol,    			  :validate => false
 	attribute :date,    			:validate => false
 	attribute :comments, 			:validate => false
+	attribute :fecha, 				:validate => false
+	attribute :edad, 					:validate => false
 	attribute :nickname, 			:captcha => true
 
 def headers 

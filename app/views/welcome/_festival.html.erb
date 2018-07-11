@@ -1,0 +1,96 @@
+<div id="Jamaica" class="tabcontent">
+	<div id="card">
+		<div class="row">
+			<div class="col-md-5">
+				<div id="fotitos">
+				<div class="owl-carousel">
+          <div> <%= image_tag "festival01.png" %> </div>
+          <div> <%= image_tag "festival02.png" %> </div>
+          <div> <%= image_tag "festival03.png" %> </div>
+				</div>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div id="info">
+					<h1>Garden Party <span class="curly">Festival</span> de quince años</h1>
+					<hr>
+					<p>Regístrate en el siguiente formulario para ser parte de nuestras próximas 15 finalistas en nuestro
+					festival de quince años este domingo 29 de julio desde las 11 am.</p> <br><br>
+
+					<h4 class="center">Requisitos:</h4>
+
+					<p>
+- No haber cumplido 15 años <br>
+- Registrarse para el festival <br>
+- Asistir el domingo 29 de julio al festival de quince años</p>
+					<!-- fin de row -->
+
+				</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id="contact">
+<%= form_for @contact do |f| %>
+
+<div class="field">
+								<%= f.label :nombre %><br>
+								<%= f.text_field :name, required:true %>
+							</div>
+
+
+						<div class="row">
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :email %><br>
+								<%= f.email_field :email, required:true %>
+							</div>
+							</div>
+
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :teléfono %><br>
+								<%= f.text_field :phone, required:true %>
+							</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :edad %><br>
+								<%= f.number_field :edad, required:true %>
+							</div>
+							</div>
+
+							<div class="col-md-6">
+							<div class="field">
+								<%= f.label :fecha_de_tus_xv %><br>
+								<%= f.date_field :fecha, required:true %>
+							</div>
+							</div>
+						</div>
+							
+							<div class="hidden">
+								<%= f.label :nickname %><br>
+								<%= f.text_field :nickname, hint: 'Esto se queda en blanco' %>
+							</div>
+
+							<br>
+							<div class="but">
+								<%= f.submit "Enviar", class:"button button_yellow but"%>
+							</div>
+							<br>
+
+<% end %>
+</div>
+
+			</div>
+		</div>
+
+
+
+		<!-- row -->
+	</div>
+</div>
+	<!-- card -->
+
+<!-- fin de otros -->

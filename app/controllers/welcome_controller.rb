@@ -2,6 +2,7 @@ class WelcomeController < ApplicationController
   before_action :authenticate_user!, only: [:citas, :por_confirmar]
   def index
   	@events = Event.all.limit(3).order('id DESC')
+    @contact = Contact.new
     @promos= Promo.where(:disponible => true).limit(4).order('id DESC')
   end
 
